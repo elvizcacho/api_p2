@@ -2,8 +2,8 @@
 
 one:
   user_id: 1
-  token: MyString
+  token: <%= SecureRandom.hex.to_s %>
 
 two:
-  user_id: 1
-  token: MyString
+  user_id: 2
+  token: <%= SecureRandom.hex.to_s %>
