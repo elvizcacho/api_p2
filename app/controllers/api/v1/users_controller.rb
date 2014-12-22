@@ -2,7 +2,7 @@ module Api
     module V1
       class UsersController < ApplicationController
 
-      	before_filter :restrict_access, :except => [:index]
+      	before_filter :restrict_access, :except => [:index, :create]
 
      	    ##
           # This is an API test
@@ -30,6 +30,15 @@ module Api
           def create
             User.create(:name => params[:name])
             render json: {response: 'User was created', user_id: User.last.id}
+          end
+
+          def destroy
+            begin
+              User.find(params[:id]).destroy  
+              render json: {response: "User #{params[:id]} was deleted"}
+            rescue Exception => e
+              render json: {response: "#{e}"}
+            end
           end
 
     	
