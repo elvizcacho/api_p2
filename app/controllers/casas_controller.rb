@@ -1,2 +1,0 @@
-class CasasController < ApplicationController
-end
