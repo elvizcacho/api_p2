@@ -9,13 +9,13 @@ module Api
   				@request.headers["Range"] = 'items=0-9'
     			get :index
     			obj = ActiveSupport::JSON.decode(@response.body)
-    			assert_response(206, '206')
+    			assert_response(206, '206 status code')
     			assert(obj.length == 10, 'it returned 10 users')
     		end
 
         test 'if range header is not set, server response with a 416 status code' do
           get :index
-          assert_response(416, '206')
+          assert_response(416, '416 status code')
         end
 
 
