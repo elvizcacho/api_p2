@@ -1,10 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+1:
   id: 1
   name: Sebastian
   
-two:
+2:
   id: 2
   name: Milena
-  
+
+3:
+  id: 3
+  name: Jose
+
+4:
+  id: 4
+  name: Laura
+
+<% 1000.times do |n| %>
+<% n += 5%>
+<%= n %>:
+  id: <%= "#{n}" %>
+  name: <%= "user#{n}" %>
+<% end %>

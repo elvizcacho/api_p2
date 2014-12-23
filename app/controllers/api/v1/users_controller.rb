@@ -23,8 +23,17 @@ module Api
           #   => {"message": "Resource not found"}
         
           def index
-            hola = User.all.to_a
-      	    render json: ActiveSupport::JSON.encode(hola)
+            if request.headers['Range']
+              range = request.headers['Range']
+              range = range.scan(/\w+\s*=\s*(\w+)\s*-\s*(\w+)/)
+              from = range[0][0].to_i
+              to = range[0][1].to_i
+              limit = to - from + 1
+              query_response = User.limit(limit).offset(from).to_a
+              render json: ActiveSupport::JSON.encode(query_response), status: 206
+            else
+              render json: {response: 'No rage header defined'}, status: 416 
+            end
     	    end
 
           def create
