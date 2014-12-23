@@ -2,7 +2,7 @@ module Api
     module V1
       class UsersController < ApplicationController
 
-      	before_filter :restrict_access, :except => [:index, :create]
+      	before_filter :restrict_access, :except => [:create]
 
      	    ##
           # This is an API test
