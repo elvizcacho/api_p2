@@ -33,7 +33,7 @@ module Api
           assert_nil(user,'user was deleted by admin')
         end
 
-        test 'only a user can delete their own account' do
+        test 'only an user can delete their own account' do
           delete :destroy, {:id => 3, :token => '4e1435bb6c65bf9ca5f298021e18174e'}
           begin
             user2 = User.find(2)
