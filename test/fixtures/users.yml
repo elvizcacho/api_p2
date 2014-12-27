@@ -3,22 +3,27 @@
 1:
   id: 1
   name: Sebastian
+  role_id: 1
   
 2:
   id: 2
   name: Milena
+  role_id: 2
 
 3:
   id: 3
   name: Jose
+  role_id: 2
 
 4:
   id: 4
   name: Laura
+  role_id: 2
 
 <% 1000.times do |n| %>
 <% n += 5%>
 <%= n %>:
   id: <%= "#{n}" %>
   name: <%= "user#{n}" %>
+  role_id: 2
 <% end %>

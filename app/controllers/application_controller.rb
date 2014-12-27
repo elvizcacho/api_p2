@@ -49,6 +49,12 @@ class ApplicationController < ActionController::Base
     return false
   end
 
+  protected
 
+  def get_range_header
+    range = request.headers['Range']
+    range = range.scan(/\w+\s*=\s*(\w+)\s*-\s*(\w+)/)
+    return range[0][0].to_i, range[0][1].to_i
+  end
 
 end

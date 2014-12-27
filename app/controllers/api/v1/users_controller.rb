@@ -2,7 +2,7 @@ module Api
     module V1
       class UsersController < ApplicationController
 
-      	before_filter :restrict_access, :except => [:create]
+      	before_filter :restrict_access, :except => [:index]
 
      	    ##
           # This is an API test
@@ -24,10 +24,7 @@ module Api
         
           def index
             if request.headers['Range']
-              range = request.headers['Range']
-              range = range.scan(/\w+\s*=\s*(\w+)\s*-\s*(\w+)/)
-              from = range[0][0].to_i
-              to = range[0][1].to_i
+              from, to = get_range_header()
               limit = to - from + 1
               query_response = User.limit(limit).offset(from).to_a
               render json: ActiveSupport::JSON.encode(query_response), status: 206
@@ -43,8 +40,17 @@ module Api
 
           def destroy
             begin
-              User.find(params[:id]).destroy  
-              render json: {response: "User #{params[:id]} was deleted"}
+              user = ApiKey.find_by_token(params[:token]).user
+              role = user.role.id
+              if role == 1
+                User.find(params[:id]).destroy  
+                render json: {response: "User #{params[:id]} was deleted"}
+              elsif role == 2 && user.id == params[:id].to_i
+                User.find(params[:id]).destroy  
+                render json: {response: "User #{params[:id]} was deleted"}
+              else
+                render json: {response: "Only Admin or the owner account can request this action"}
+              end
             rescue Exception => e
               render json: {response: "#{e}"}
             end
