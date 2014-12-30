@@ -64,7 +64,17 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-get_range_header">#get_range_header</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -90,6 +100,49 @@
     
 
     
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_range_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_range_header</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_range_header-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_range_header</span>
+  <span class="ruby-identifier">range</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Range&#39;</span>]
+  <span class="ruby-identifier">range</span> = <span class="ruby-identifier">range</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\w+\s*=\s*(\w+)\s*-\s*(\w+)/</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">range</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">range</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

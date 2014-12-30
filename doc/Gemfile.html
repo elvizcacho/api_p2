@@ -74,6 +74,8 @@
   
     <li><a href="./log/development_log.html">development.log</a>
   
+    <li><a href="./log/test_log.html">test.log</a>
+  
     <li><a href="./public/404_html.html">404.html</a>
   
     <li><a href="./public/422_html.html">422.html</a>
@@ -118,6 +120,13 @@ group: :doc</p>
 background. Read more: <a
 href="https://github.com/rails/spring">github.com/rails/spring</a> gem
 &#39;spring&#39;,        group: :development</p>
+
+<p>group :development, :test do</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;rspec-rails&#39;</span>,      <span class="ruby-string">&quot;&gt;= 2.0.0.beta&quot;</span>
+</pre>
+
+<p>end</p>
 
 <p># Use ActiveModel has_secure_password # gem &#39;bcrypt&#39;, &#39;~&gt;
 3.1.7&#39;</p>

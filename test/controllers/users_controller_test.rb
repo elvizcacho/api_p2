@@ -50,8 +50,6 @@ module Api
           assert_nil(user,'user was deleted by user')
         end
 
-
-
-  	end
+    end
 	end
 end
