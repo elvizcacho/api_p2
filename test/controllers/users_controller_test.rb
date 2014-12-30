@@ -4,6 +4,7 @@ module Api
   module V1
 	  class UsersControllerTest < ActionController::TestCase
 
+      #index
   			test "should get 10 users" do
   				@request.headers["Accept"] = 'application/x-user+json'
   				@request.headers["Range"] = 'items=0-9'
@@ -18,6 +19,7 @@ module Api
           assert_response(416, '416 status code')
         end
 
+      #destroy
         test 'if the token is not valid, server response with a 401 status code' do
           delete :destroy, {:id => '20'}
           assert_response(401, '401 status code')
