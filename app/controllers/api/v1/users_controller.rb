@@ -54,7 +54,7 @@ module Api
           # POST /api/v1/users
           #
           # params:
-          #   name - username   [Required]
+          #   name - string     [Required]
           #   role_id - number  [Required]
           #   token - API token [Required]
           # 
