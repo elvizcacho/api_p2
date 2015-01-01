@@ -1,6 +1,6 @@
 class AddRoleClient < ActiveRecord::Migration
   def change
-  	Role.create(:id => 2, :name => "client")
+  	Role.create(:name => "client")
   	User.create(:name => "Laura", :role_id => 2)
   	client = Role.find(2)
   	#assigning permissions

@@ -1,10 +1,10 @@
 class Initialization < ActiveRecord::Migration
   def change
-  	Role.create(:id => 1, :name => "admin")
-  	ControllerAction.create(:id => 1, :name => "users")
-  	ControllerAction.create(:id => 2, :name => "index", :controller_action_id => 1)
-  	ControllerAction.create(:id => 3, :name => "create", :controller_action_id => 1)
-  	ControllerAction.create(:id => 4, :name => "destroy", :controller_action_id => 1)
+  	Role.create(:name => "admin")
+  	ControllerAction.create(:name => "users")
+  	ControllerAction.create(:name => "index", :controller_action_id => 1)
+  	ControllerAction.create(:name => "create", :controller_action_id => 1)
+  	ControllerAction.create(:name => "destroy", :controller_action_id => 1)
   	admin = Role.find(1)
   	users = ControllerAction.find(1)
   	admin.controller_actions << users
