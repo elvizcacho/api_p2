@@ -20,7 +20,7 @@ module Api
         end
 
       #destroy
-        test 'if the token is not valid, server response with a 401 status code' do
+        test 'if the token is not valid, server response with a 401 status code # destroy' do
           delete :destroy, {:id => '20'}
           assert_response(401, '401 status code')
         end
@@ -52,7 +52,38 @@ module Api
           assert_nil(user,'user was deleted by user')
         end
 
-    #create
+    #update
+      test 'if the token is not valid, server response with a 401 status code # update' do
+        patch :update, {:id => '20'}
+        assert_response(401, '401 status code')
+      end
+
+      test 'only admin can update user accounts' do
+        delete :update, {:id => 10, :token => '0474eee1800353d61a5de09259ee2f9e'}
+        begin
+          user = User.find(10)
+        rescue Exception => e
+          puts "#############{e}################"
+        end
+        assert_nil(user,'user was updated by admin')
+      end
+
+      test 'only an user can updated their own account' do
+        delete :update, {:id => 3, :token => '4e1435bb6c65bf9ca5f298021e18174e'}
+        begin
+          user2 = User.find(2)
+        rescue Exception => e
+          puts "#############{e}################"
+        end
+        assert_not_nil(user2,"user couldn't be updated by other user different from admin or the owner account")
+        delete :update, {:id => 2, :token => '4e1435bb6c65bf9ca5f298021e18174e'}
+        begin
+          user = User.find(2)
+        rescue Exception => e
+          puts "#############{e}################"
+        end
+        assert_nil(user,'user was updated by user')
+      end
 
     end
 	end

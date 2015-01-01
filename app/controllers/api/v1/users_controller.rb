@@ -120,7 +120,24 @@ module Api
             end
           end
 
-    	
+          def update
+            begin
+              role = ApiKey.find_by_token(params[:token]).user.role.id
+              if role == 1
+                user = User.find(params[:id])
+                user.update(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
+                render json: {response: "User #{params[:id]} was updated"}, status: 200
+              elsif role == 2 && user.id == params[:id].to_i
+                user = User.find(params[:id])
+                user.update(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
+                render json: {response: "User #{params[:id]} was updated"}, status: 200
+              else
+                render json: {response: "Only Admin or the owner account can request this action"}, status: 401
+              end
+            rescue Exception => e
+              render json: {response: "#{e}"}, status: 404
+            end
+          end
 
         end
     end
