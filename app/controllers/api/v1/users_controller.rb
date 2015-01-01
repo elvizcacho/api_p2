@@ -73,8 +73,12 @@ module Api
           #      }
 
           def create
-            User.create(:name => params[:name], :role_id => params[:role_id])
-            render json: {response: 'User was created', user_id: User.last.id}, status: 201
+            error_messages = User.create(:name => params[:name], :role_id => params[:role_id]).errors.messages
+            if error_messages.to_a.length != 0
+              render json: {errors: error_messages}, status: 400
+            else
+              render json: {response: 'User was created', user_id: User.last.id}, status: 201
+            end
           end
 
           ##
