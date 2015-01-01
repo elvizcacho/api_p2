@@ -60,13 +60,13 @@ module Api
 
       test 'only admin can update user accounts' do
         put :update, {:id => 11, :token => '0474eee1800353d61a5de09259ee2f9e', :name => 'Ana'}
-        puts "username id = 11: #{User.find(11).name}################"
+        puts "username id = 11: #{User.find(11).name}"
         assert(User.find(11).name == 'Ana', 'user was updated by admin')
       end
 
       test 'only an user can updated their own account' do
         username_before_update = User.find(4).name
-        put :update, {:id => 4, :token => 'd83d8c78924be366ee08b5522e04e626', :name => "Ana"}
+        put :update, {:id => 4, :token => '92af12590b11095d5d7828d1a9b7a5e5', :name => "Ana"}
         assert(User.find(4).name == username_before_update, "user couldn't be updated by other user different from admin or the owner account")
         put :update, {:id => 2, :token => '4e1435bb6c65bf9ca5f298021e18174e', :name => "Ana"}
         assert(User.find(2).name == 'Ana', 'user was updated by admin')

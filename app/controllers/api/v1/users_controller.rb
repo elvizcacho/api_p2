@@ -84,10 +84,10 @@ module Api
           ##
           # It deletes an User.
           # 
-          # DELETE /api/v1/users
+          # DELETE /api/v1/users/:id
           #
           # params:
-          #   id - username     [Required]
+          #   id - number     [Required]
           #   token - API token [Required] 
           #   
           # = Examples
@@ -120,17 +120,53 @@ module Api
             end
           end
 
+          ##
+          # It updates an User.
+          # 
+          # PUT or PATCH /api/v1/users/:id
+          #
+          # params:
+          #   id - number       [Required]
+          #   name - string     
+          #   role_id - number  
+          #   token - API token [Required] 
+          #   
+          # = Examples
+          #   
+          #   resp = conn.get("/api/v1/users/4", token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 200 - OK
+          #
+          #   resp.body
+          #   => {
+          #         "response": "User 4 was deleted"
+          #      }
+
           def update
             begin
-              role = ApiKey.find_by_token(params[:token]).user.role.id
+              token_user = ApiKey.find_by_token(params[:token]).user
+              role = token_user.role.id
               if role == 1
                 user = User.find(params[:id])
-                user.update(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
-                render json: {response: "User #{params[:id]} was updated"}, status: 200
-              elsif role == 2 && user.id == params[:id].to_i
+                user.assign_attributes(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
+                if user.valid?
+                  user.save
+                  render json: {response: "User #{params[:id]} was updated"}, status: 200
+                else
+                  error_messages = user.errors.messages
+                  render json: {errors: error_messages}, status: 400
+                end
+              elsif role == 2 && token_user.id == params[:id].to_i
                 user = User.find(params[:id])
-                user.update(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
-                render json: {response: "User #{params[:id]} was updated"}, status: 200
+                user.assign_attributes(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
+                if user.valid?
+                  user.save
+                  render json: {response: "User #{params[:id]} was updated"}, status: 200
+                else
+                  error_messages = user.errors.messages
+                  render json: {errors: error_messages}, status: 400
+                end
               else
                 render json: {response: "Only Admin or the owner account can request this action"}, status: 401
               end

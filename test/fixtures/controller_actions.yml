@@ -18,3 +18,8 @@
   id: 4
   name: destroy
   controller_action_id: 1
+
+5:
+  id: 5
+  name: update
+  controller_action_id: 1
