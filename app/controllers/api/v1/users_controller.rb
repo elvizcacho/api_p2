@@ -11,7 +11,7 @@ module Api
           # GET /api/v1/users
           #
           # params:
-          #   token - API token
+          #   token - API token [Required]
           # 
           # header:
           #   range - items=num-num
@@ -87,7 +87,7 @@ module Api
           # DELETE /api/v1/users/:id
           #
           # params:
-          #   id - number     [Required]
+          #   id - number       [Required]
           #   token - API token [Required] 
           #   
           # = Examples
@@ -140,7 +140,7 @@ module Api
           #
           #   resp.body
           #   => {
-          #         "response": "User 4 was deleted"
+          #         "response": "User 4 was updated"
           #      }
 
           def update
