@@ -2,7 +2,7 @@ module Api
     module V1
       class UsersController < ApplicationController
 
-      	before_filter :restrict_access, :except => [:index]
+      	before_filter :restrict_access, :except => []
 
      	    ##
           # It returns an array of Users. 
@@ -73,12 +73,8 @@ module Api
           #      }
 
           def create
-            error_messages = User.create(:name => params[:name], :role_id => params[:role_id]).errors.messages
-            if error_messages.to_a.length != 0
-              render json: {errors: error_messages}, status: 400
-            else
-              render json: {response: 'User was created', user_id: User.last.id}, status: 201
-            end
+            response, status = User.create_from_model(:name => params[:name], :role_id => params[:role_id])
+            render :json => response, :status => status
           end
 
           ##
@@ -103,21 +99,8 @@ module Api
           #      }
 
           def destroy
-            begin
-              user = ApiKey.find_by_token(params[:token]).user
-              role = user.role.id
-              if role == 1
-                User.find(params[:id]).destroy  
-                render json: {response: "User #{params[:id]} was deleted"}, status: 200
-              elsif role == 2 && user.id == params[:id].to_i
-                User.find(params[:id]).destroy  
-                render json: {response: "User #{params[:id]} was deleted"}, status: 200
-              else
-                render json: {response: "Only Admin or the owner account can request this action"}, status: 401
-              end
-            rescue Exception => e
-              render json: {response: "#{e}"}, status: 404
-            end
+            response, status = User.destroy_from_model(:id => params[:id], :token => params[:token])
+            render :json => response, :status => status
           end
 
           ##
@@ -144,35 +127,8 @@ module Api
           #      }
 
           def update
-            begin
-              token_user = ApiKey.find_by_token(params[:token]).user
-              role = token_user.role.id
-              if role == 1
-                user = User.find(params[:id])
-                user.assign_attributes(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
-                if user.valid?
-                  user.save
-                  render json: {response: "User #{params[:id]} was updated"}, status: 200
-                else
-                  error_messages = user.errors.messages
-                  render json: {errors: error_messages}, status: 400
-                end
-              elsif role == 2 && token_user.id == params[:id].to_i
-                user = User.find(params[:id])
-                user.assign_attributes(:name => params[:name].nil? ? user.name : params[:name], :role_id => params[:role_id].nil? ? user.role_id : params[:role_id])
-                if user.valid?
-                  user.save
-                  render json: {response: "User #{params[:id]} was updated"}, status: 200
-                else
-                  error_messages = user.errors.messages
-                  render json: {errors: error_messages}, status: 400
-                end
-              else
-                render json: {response: "Only Admin or the owner account can request this action"}, status: 401
-              end
-            rescue Exception => e
-              render json: {response: "#{e}"}, status: 404
-            end
+            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id])
+            render :json => response, :status => status
           end
 
         end

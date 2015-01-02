@@ -8,14 +8,14 @@ module Api
   			test "should get 10 users" do
   				@request.headers["Accept"] = 'application/x-user+json'
   				@request.headers["Range"] = 'items=0-9'
-    			get :index
+    			get :index, {:token => '0474eee1800353d61a5de09259ee2f9e'}
     			obj = ActiveSupport::JSON.decode(@response.body)
     			assert_response(206, '206 status code')
     			assert(obj.length == 10, 'it returned 10 users')
     		end
 
         test 'if range header is not set, server response with a 416 status code' do
-          get :index
+          get :index, {:token => '0474eee1800353d61a5de09259ee2f9e'}
           assert_response(416, '416 status code')
         end
 
