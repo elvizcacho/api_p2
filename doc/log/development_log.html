@@ -4479,6 +4479,1365 @@ as JSON</p>
 [1m[35m (140.5ms)[0m  commit transaction</pre>
 
 <p>Completed 200 OK in 190ms (Views: 0.4ms | ActiveRecord: 143.9ms)</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:41:17 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end</p>
+
+<pre>render :json response, status
+                     ^</pre>
+
+<p>/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected &#39;n&#39;, expecting &#39;=&#39;
+/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:176:
+syntax error, unexpected end-of-input, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected &#39;\n&#39;, expecting &#39;=&#39;
+app/controllers/api/v1/users_controller.rb:176: syntax error, unexpected end-of-input, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (23.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.9ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:42:07 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected &#39;{&#39;, expecting keyword_end</p>
+
+<pre>          render :json {response}, status
+                        ^):
+app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected &#39;{&#39;, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:42:49 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.2ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.3ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 67ms</p>
+
+<p>NoMethodError (undefined method `create2&#39; for
+#&lt;Class:0x00000004aaa7b8&gt;):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:43:41 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 41ms</p>
+
+<p>NoMethodError (undefined method `create2&#39; for
+#&lt;Class:0x000000035c1c98&gt;):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:45:29 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[35mApiKey Load (0.3ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 42ms</p>
+
+<p>NoMethodError (undefined method `create2&#39; for
+#&lt;Class:0x0000000521db80&gt;):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:46:29 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 75ms</p>
+
+<p>NoMethodError (undefined method `holaa&#39; for
+#&lt;Class:0x0000000607fef8&gt;):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:47:53 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.2ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 44ms</p>
+
+<p>NoMethodError (undefined method `holaa&#39; for
+#&lt;Class:0x0000000583a8b0&gt;):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)</pre>
+
+<p>Started PUT “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:48:05 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>ActionController::RoutingError (No route matches [PUT] “/api/v1/users”):</p>
+
+<pre>actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+/home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+/home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+/home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (22.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.2ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:48:15 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.2ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 78ms</p>
+
+<p>NoMethodError (undefined method `holaa&#39; for
+#&lt;Class:0x0000000608cdd8&gt;):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:48:29 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.2ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.3ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Rendered text template (0.0ms)</pre>
+
+<p>Completed 200 OK in 80ms (Views: 25.8ms | ActiveRecord: 3.6ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:48:54 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.2ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.3ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.1ms)[0m  rollback transaction</pre>
+
+<p>Completed 200 OK in 48ms (Views: 0.3ms | ActiveRecord: 3.1ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:49:24 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end</p>
+
+<pre>render :json response, status
+                     ^</pre>
+
+<p>/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected &#39;n&#39;, expecting &#39;=&#39;
+/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:176:
+syntax error, unexpected end-of-input, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected &#39;\n&#39;, expecting &#39;=&#39;
+app/controllers/api/v1/users_controller.rb:176: syntax error, unexpected end-of-input, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:49:38 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:51:46 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:51:55 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.6ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:53:16 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:53:51 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;34b3cf32dfc93d62e710f74ce4b7bac4&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;34b3cf32dfc93d62e710f74ce4b7bac4&#39; LIMIT 1[0m</pre>
+
+<p>Filter chain halted as :restrict_access rendered or redirected Completed
+401 Unauthorized in 6ms (Views: 0.3ms | ActiveRecord: 1.1ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:54:07 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.2ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.1ms)[0m  rollback transaction</pre>
+
+<p>Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 2.5ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:54:52 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:55:51 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected &#39;n&#39;, expecting =&gt;
+/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:176:
+syntax error, unexpected end-of-input, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected &#39;\n&#39;, expecting =&gt;
+app/controllers/api/v1/users_controller.rb:176: syntax error, unexpected end-of-input, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:58:29 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:78:
+syntax error, unexpected &#39;{&#39;, expecting =&gt;
+/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:181:
+syntax error, unexpected end-of-input, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:78: syntax error, unexpected &#39;{&#39;, expecting =&gt;
+app/controllers/api/v1/users_controller.rb:181: syntax error, unexpected end-of-input, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)</pre>
+
+<p>Started PUT “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:58:57 -0500</p>
+
+<p>ActionController::RoutingError (No route matches [PUT] “/api/v1/users”):</p>
+
+<pre>actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.8) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.8) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.8) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+/home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+/home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+/home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.4ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:59:02 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:78:
+syntax error, unexpected &#39;n&#39;, expecting =&gt;
+/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:180:
+syntax error, unexpected end-of-input, expecting keyword_end):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:78: syntax error, unexpected &#39;\n&#39;, expecting =&gt;
+app/controllers/api/v1/users_controller.rb:180: syntax error, unexpected end-of-input, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.3ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:59:24 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected &#39;{&#39;, expecting keyword_end</p>
+
+<pre>          render :json {response}, status: status
+                        ^):
+app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected &#39;{&#39;, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 22:59:40 -0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:77:
+syntax error, unexpected tIDENTIFIER, expecting keyword_end</p>
+
+<pre>          render :json response, status: status
+                               ^):
+app/controllers/api/v1/users_controller.rb:77: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 23:02:31 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;}
+[1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35m (0.0ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mrollback transaction[0m</pre>
+
+<p>Completed 400 Bad Request in 38ms (Views: 0.2ms | ActiveRecord: 2.4ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-01 23:08:35 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Maria&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 04:08:35.886166&quot;], [&quot;name&quot;, &quot;Maria&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 04:08:35.886166&quot;]]
+[1m[36mApiKey Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;0b2cb96062f2dce21a6874d69a14dab0&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 04:08:35.887949&quot;], [&quot;token&quot;, &quot;0b2cb96062f2dce21a6874d69a14dab0&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 04:08:35.887949&quot;], [&quot;user_id&quot;, 21]]
+[1m[36m (112.1ms)[0m  [1mcommit transaction[0m
+[1m[35mUser Load (0.4ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;   ORDER BY &quot;users&quot;.&quot;id&quot; DESC LIMIT 1</pre>
+
+<p>Completed 201 Created in 196ms (Views: 0.6ms | ActiveRecord: 115.7ms)</p>
+
+<p>Started DELETE “/api/v1/users/26” for 127.0.0.1 at 2015-01-01 23:23:31
+-0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-destroy">Api::V1::UsersController#destroy</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;id&quot;=&gt;&quot;26&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]</pre>
+
+<p>Completed 404 Not Found in 78ms (Views: 0.2ms | ActiveRecord: 2.6ms)</p>
+
+<p>Started DELETE “/api/v1/users/21” for 127.0.0.1 at 2015-01-01 23:23:43
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-destroy">Api::V1::UsersController#destroy</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;id&quot;=&gt;&quot;21&quot;}
+[1m[36mApiKey Load (0.3ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 21]]
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;user_id&quot; = ? LIMIT 1[0m  [[&quot;user_id&quot;, 21]]
+[1m[35mSQL (0.4ms)[0m  DELETE FROM &quot;api_keys&quot; WHERE &quot;api_keys&quot;.&quot;id&quot; = ?  [[&quot;id&quot;, 21]]
+[1m[36mSQL (0.2ms)[0m  [1mDELETE FROM &quot;users&quot; WHERE &quot;users&quot;.&quot;id&quot; = ?[0m  [[&quot;id&quot;, 21]]
+[1m[35m (128.5ms)[0m  commit transaction</pre>
+
+<p>Completed 200 OK in 144ms (Views: 0.6ms | ActiveRecord: 130.4ms)</p>
+
+<p>Started GET “/api/v1/users?token=8c3e34a3f86785fa5e72481663b7204e” for
+127.0.0.1 at 2015-01-01 23:51:57 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-index">Api::V1::UsersController#index</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.3ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 416 Requested Range Not Satisfiable in 73ms (Views: 0.2ms |
+ActiveRecord: 2.4ms)</p>
+
+<p>Started GET “/api/v1/users?token=8c3e34a3f86785fa5e72481663b7204e” for
+127.0.0.1 at 2015-01-01 23:52:11 -0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-index">Api::V1::UsersController#index</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;}
+[1m[36mApiKey Load (0.3ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  LIMIT 10 OFFSET 0</pre>
+
+<p>Completed 206 Partial Content in 11ms (Views: 0.2ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started GET “/api/v1/users?token=8c3e34a3f86785fa5e72481663b704e” for
+127.0.0.1 at 2015-01-01 23:52:23 -0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-index">Api::V1::UsersController#index</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b704e&quot;}
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b704e&#39; LIMIT 1[0m</pre>
+
+<p>Filter chain halted as :restrict_access rendered or redirected Completed
+401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)</p>
+
+<p>Started GET “/api/v1/users?token=8c3e34a3f86785fa5e72481663b7204e” for
+127.0.0.1 at 2015-01-01 23:52:29 -0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-index">Api::V1::UsersController#index</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.2ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  LIMIT 10 OFFSET 0[0m</pre>
+
+<p>Completed 206 Partial Content in 15ms (Views: 0.2ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started PUT “/api/v1/users/20” for 127.0.0.1 at 2015-01-01 23:55:39 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-update">Api::V1::UsersController#update</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;a&quot;, &quot;id&quot;=&gt;&quot;20&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 20]]</pre>
+
+<p>Completed 400 Bad Request in 83ms (Views: 0.2ms | ActiveRecord: 2.6ms)</p>
+
+<p>Started PUT “/api/v1/users/20” for 127.0.0.1 at 2015-01-01 23:55:47 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-update">Api::V1::UsersController#update</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Zoe&quot;, &quot;id&quot;=&gt;&quot;20&quot;}
+[1m[36mApiKey Load (0.3ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 20]]
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.5ms)[0m  [1mUPDATE &quot;users&quot; SET &quot;name&quot; = ?, &quot;updated_at&quot; = ? WHERE &quot;users&quot;.&quot;id&quot; = 20[0m  [[&quot;name&quot;, &quot;Zoe&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 04:55:47.277288&quot;]]
+[1m[35m (132.5ms)[0m  commit transaction</pre>
+
+<p>Completed 200 OK in 152ms (Views: 0.5ms | ActiveRecord: 134.3ms)</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a href="../AddPasswordToUser.html">AddPasswordToUser</a>
+(20150102131548)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.4ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;password&quot; varchar(255)[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150102131548&quot;]]
+[1m[36m (114.4ms)[0m  [1mcommit transaction[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a href="../AddEmailToUser.html">AddEmailToUser</a>
+(20150102131932)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.4ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;email&quot; varchar(255)[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150102131932&quot;]]
+[1m[36m (118.3ms)[0m  [1mcommit transaction[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:28:32 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.2ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; IS NULL LIMIT 1
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m</pre>
+
+<p>Completed 400 Bad Request in 159ms (Views: 0.3ms | ActiveRecord: 2.7ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:29:59 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Milena&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;mile00&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;mile00&#39; LIMIT 1
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m</pre>
+
+<p>Completed 400 Bad Request in 12ms (Views: 0.2ms | ActiveRecord: 1.1ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:30:15 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Milena&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;mile0057@gmail.com&quot;}
+[1m[35mApiKey Load (0.4ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;mile0057@gmail.com&#39; LIMIT 1
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 14:30:15.591027&quot;], [&quot;email&quot;, &quot;mile0057@gmail.com&quot;], [&quot;name&quot;, &quot;Milena&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 14:30:15.591027&quot;]]
+[1m[35mApiKey Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;9f00691b3e88e664bab8815f258e27e5&#39; LIMIT 1
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 14:30:15.592834&quot;], [&quot;token&quot;, &quot;9f00691b3e88e664bab8815f258e27e5&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 14:30:15.592834&quot;], [&quot;user_id&quot;, 22]]
+[1m[35m (231.0ms)[0m  commit transaction
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;   ORDER BY &quot;users&quot;.&quot;id&quot; DESC LIMIT 1[0m</pre>
+
+<p>Completed 201 Created in 246ms (Views: 0.3ms | ActiveRecord: 232.8ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:30:22 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Milena&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;mile0057@gmail.com&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;mile0057@gmail.com&#39; LIMIT 1
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m</pre>
+
+<p>Completed 400 Bad Request in 13ms (Views: 0.4ms | ActiveRecord: 1.1ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:46:19 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0057@gmail.com&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 64ms</p>
+
+<p>TypeError (no implicit conversion of nil into String):</p>
+
+<pre>app/models/user.rb:16:in `digest&#39;
+app/models/user.rb:16:in `hexdigest&#39;
+app/models/user.rb:16:in `create_from_model&#39;
+app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:46:46 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0057@gmail.com&quot;}
+[1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.3ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 35ms</p>
+
+<p>TypeError (no implicit conversion of nil into String):</p>
+
+<pre>app/models/user.rb:16:in `digest&#39;
+app/models/user.rb:16:in `hexdigest&#39;
+app/models/user.rb:16:in `create_from_model&#39;
+app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:47:05 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0057@gmail.com&quot;}
+[1m[35mApiKey Load (0.1ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]</pre>
+
+<p>Completed 500 Internal Server Error in 36ms</p>
+
+<p>TypeError (no implicit conversion of nil into String):</p>
+
+<pre>app/models/user.rb:16:in `digest&#39;
+app/models/user.rb:16:in `hexdigest&#39;
+app/models/user.rb:16:in `create_from_model&#39;
+app/controllers/api/v1/users_controller.rb:76:in `create&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.2ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:48:26 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0057@gmail.com&quot;}
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.3ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0057@gmail.com&#39; LIMIT 1[0m
+[1m[35m (0.6ms)[0m  rollback transaction</pre>
+
+<p>Completed 400 Bad Request in 47ms (Views: 0.2ms | ActiveRecord: 3.4ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 09:49:54 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0057@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0057@gmail.com&#39; LIMIT 1[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 14:49:54.162543&quot;], [&quot;email&quot;, &quot;julio0057@gmail.com&quot;], [&quot;name&quot;, &quot;Julio&quot;], [&quot;password&quot;, &quot;62798c6e621ae953c76965ee790b10b7&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 14:49:54.162543&quot;]]
+[1m[36mApiKey Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;2b0939cf7ece9a3aa6994f6d4f4972af&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 14:49:54.164599&quot;], [&quot;token&quot;, &quot;2b0939cf7ece9a3aa6994f6d4f4972af&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 14:49:54.164599&quot;], [&quot;user_id&quot;, 23]]
+[1m[36m (124.2ms)[0m  [1mcommit transaction[0m
+[1m[35mUser Load (0.4ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;   ORDER BY &quot;users&quot;.&quot;id&quot; DESC LIMIT 1</pre>
+
+<p>Completed 201 Created in 142ms (Views: 0.5ms | ActiveRecord: 126.0ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 10:04:50 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio2&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0058@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35mRole Load (0.3ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?[0m  [[&quot;role_id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?  [[&quot;controller_action_id&quot;, 1]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 6]]
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0058@gmail.com&#39; LIMIT 1[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 15:04:50.119295&quot;], [&quot;email&quot;, &quot;julio0058@gmail.com&quot;], [&quot;name&quot;, &quot;Julio2&quot;], [&quot;password&quot;, &quot;0cc175b9c0f1b6a831c399e269772661&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 15:04:50.119295&quot;]]
+[1m[36mApiKey Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;3af13051bb9d75dd4b7232dbb727bd82&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 15:04:50.120892&quot;], [&quot;token&quot;, &quot;3af13051bb9d75dd4b7232dbb727bd82&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 15:04:50.120892&quot;], [&quot;user_id&quot;, 24]]
+[1m[36m (136.0ms)[0m  [1mcommit transaction[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;   ORDER BY &quot;users&quot;.&quot;id&quot; DESC LIMIT 1</pre>
+
+<p>Completed 201 Created in 187ms (Views: 0.3ms | ActiveRecord: 139.5ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 10:44:29 -0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio2&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0058@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m</pre>
+
+<p>Completed 500 Internal Server Error in 25ms</p>
+
+<p>NoMethodError (undefined method `after_validation_on_create&#39; for
+#&lt;Class:0x00000004e4bf48&gt;):</p>
+
+<pre>app/models/user.rb:6:in `&lt;class:User&gt;&#39;
+app/models/user.rb:1:in `&lt;top (required)&gt;&#39;
+app/controllers/application_controller.rb:32:in `restrict_access_by_role&#39;
+app/controllers/application_controller.rb:12:in `restrict_access&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)</pre>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 10:57:04 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio2&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0058@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mApiKey Load (0.1ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0058@gmail.com&#39; LIMIT 1
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m</pre>
+
+<p>Completed 400 Bad Request in 57ms (Views: 0.2ms | ActiveRecord: 2.6ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 10:57:29 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio3&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0059@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0059@gmail.com&#39; LIMIT 1
+[1m[36mSQL (0.4ms)[0m  [1mINSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 15:57:29.446673&quot;], [&quot;email&quot;, &quot;julio0059@gmail.com&quot;], [&quot;name&quot;, &quot;Julio3&quot;], [&quot;password&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 15:57:29.446673&quot;]]
+[1m[35mApiKey Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;9c078ee8e23a116b05417d62071a0847&#39; LIMIT 1
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 15:57:29.448976&quot;], [&quot;token&quot;, &quot;9c078ee8e23a116b05417d62071a0847&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 15:57:29.448976&quot;], [&quot;user_id&quot;, 25]]
+[1m[35m (128.6ms)[0m  commit transaction
+[1m[36mUser Load (0.4ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;   ORDER BY &quot;users&quot;.&quot;id&quot; DESC LIMIT 1[0m</pre>
+
+<p>Completed 201 Created in 149ms (Views: 0.5ms | ActiveRecord: 130.8ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 10:57:57 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio3&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39; LIMIT 1
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 15:57:57.649371&quot;], [&quot;email&quot;, &quot;julio0060@gmail.com&quot;], [&quot;name&quot;, &quot;Julio3&quot;], [&quot;password&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 15:57:57.649371&quot;]]
+[1m[35mApiKey Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;c56ef37ffc50aa334cc5314a1d3c162a&#39; LIMIT 1
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 15:57:57.650600&quot;], [&quot;token&quot;, &quot;c56ef37ffc50aa334cc5314a1d3c162a&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 15:57:57.650600&quot;], [&quot;user_id&quot;, 26]]
+[1m[35m (128.5ms)[0m  commit transaction
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;   ORDER BY &quot;users&quot;.&quot;id&quot; DESC LIMIT 1[0m</pre>
+
+<p>Completed 201 Created in 143ms (Views: 0.2ms | ActiveRecord: 130.1ms)</p>
+
+<p>Started POST “/api/v1/users” for 127.0.0.1 at 2015-01-02 10:59:14 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-create">Api::V1::UsersController#create</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;Julio3&quot;, &quot;role_id&quot;=&gt;&quot;2&quot;, &quot;email&quot;=&gt;&quot;julio0061@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;julio0061@gmail.com&#39; LIMIT 1
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m</pre>
+
+<p>Completed 400 Bad Request in 11ms (Views: 0.2ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started PUT “/api/v1/users/26” for 127.0.0.1 at 2015-01-02 11:24:38 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-update">Api::V1::UsersController#update</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;, &quot;id&quot;=&gt;&quot;26&quot;}
+[1m[35mApiKey Load (0.1ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE (&quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39; AND &quot;users&quot;.&quot;id&quot; != 26) LIMIT 1[0m</pre>
+
+<p>Completed 400 Bad Request in 44ms (Views: 0.2ms | ActiveRecord: 2.2ms)</p>
+
+<p>Started PUT “/api/v1/users/26” for 127.0.0.1 at 2015-01-02 11:25:02 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-update">Api::V1::UsersController#update</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;, &quot;id&quot;=&gt;&quot;26&quot;}
+[1m[35mApiKey Load (0.3ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]
+[1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE (&quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39; AND &quot;users&quot;.&quot;id&quot; != 26) LIMIT 1[0m
+[1m[35m (0.0ms)[0m  begin transaction
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE (&quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39; AND &quot;users&quot;.&quot;id&quot; != 26) LIMIT 1[0m
+[1m[35mSQL (0.3ms)[0m  UPDATE &quot;users&quot; SET &quot;password&quot; = ?, &quot;updated_at&quot; = ? WHERE &quot;users&quot;.&quot;id&quot; = 26  [[&quot;password&quot;, &quot;4d186321c1a7f0f354b297e8914ab240&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 16:25:02.442112&quot;]]
+[1m[36m (117.1ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Completed 200 OK in 132ms (Views: 0.2ms | ActiveRecord: 118.5ms)</p>
+
+<p>Started PUT “/api/v1/users/26” for 127.0.0.1 at 2015-01-02 11:25:47 -0500
+Processing by <a
+href="../Api/V1/UsersController.html#method-i-update">Api::V1::UsersController#update</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;token&quot;=&gt;&quot;8c3e34a3f86785fa5e72481663b7204e&quot;, &quot;name&quot;=&gt;&quot;hola&quot;, &quot;id&quot;=&gt;&quot;26&quot;}
+[1m[35mApiKey Load (0.1ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mRole Load (0.1ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mControllerAction Load (0.2ms)[0m  SELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot; INNER JOIN &quot;controller_actions_roles&quot; ON &quot;controller_actions&quot;.&quot;id&quot; = &quot;controller_actions_roles&quot;.&quot;controller_action_id&quot; WHERE &quot;controller_actions_roles&quot;.&quot;role_id&quot; = ?  [[&quot;role_id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ?[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;8c3e34a3f86785fa5e72481663b7204e&#39; LIMIT 1[0m
+[1m[35mCACHE (0.0ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 6]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE (&quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39; AND &quot;users&quot;.&quot;id&quot; != 26) LIMIT 1[0m
+[1m[35m (0.0ms)[0m  begin transaction
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE (&quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39; AND &quot;users&quot;.&quot;id&quot; != 26) LIMIT 1[0m
+[1m[35mSQL (0.2ms)[0m  UPDATE &quot;users&quot; SET &quot;name&quot; = ?, &quot;updated_at&quot; = ? WHERE &quot;users&quot;.&quot;id&quot; = 26  [[&quot;name&quot;, &quot;hola&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 16:25:47.359099&quot;]]
+[1m[36m (269.7ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Completed 200 OK in 317ms (Views: 0.2ms | ActiveRecord: 273.2ms)</p>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:03:03
+-0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mApiKey Load (0.2ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; IS NULL LIMIT 1</pre>
+
+<p>Filter chain halted as :restrict_access rendered or redirected Completed
+401 Unauthorized in 17ms (Views: 0.2ms | ActiveRecord: 0.7ms)</p>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:03:38
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;4d186321c1a7f0f354b297e8914ab240&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m</pre>
+
+<p>Completed 500 Internal Server Error in 17ms</p>
+
+<p>ActionView::MissingTemplate (Missing template api/v1/users/json,
+application/json with {:<a href=":en">locale=></a>, :<a
+href=":json">formats=></a>, :variants=&gt;[], :handlers=&gt;[:erb,
+:builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:</p>
+
+<pre>* &quot;/home/warlock/RoR/Rails/api_p2/app/views&quot;</pre>
+
+<p>):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:139:in `login&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (1.1ms)</pre>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:04:22
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;4d186321c1a7f0f354b297e8914ab240&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1</pre>
+
+<p>Completed 500 Internal Server Error in 9ms</p>
+
+<p>ArgumentError (wrong number of arguments (3 for 0..2)):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:139:in `login&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)</pre>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:04:41
+-0500</p>
+
+<p>SyntaxError
+(/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:139:
+syntax error, unexpected &#39;{&#39;, expecting keyword_end</p>
+
+<pre>render :json {response: &quot;#{user.id}&quot;}, status: 200
+              ^</pre>
+
+<p>/home/warlock/RoR/Rails/api_p2/app/controllers/api/v1/users_controller.rb:139:
+syntax error, unexpected &#39;}&#39;, expecting keyword_end</p>
+
+<pre>          render :json {response: &quot;#{user.id}&quot;}, status: 200
+                                               ^):
+app/controllers/api/v1/users_controller.rb:139: syntax error, unexpected &#39;{&#39;, expecting keyword_end
+app/controllers/api/v1/users_controller.rb:139: syntax error, unexpected &#39;}&#39;, expecting keyword_end
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)</pre>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:05:21
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;4d186321c1a7f0f354b297e8914ab240&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m</pre>
+
+<p>Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.6ms)</p>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:05:35
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;8b334cc5ca63a2511b3f1bc3a9a56f98&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1</pre>
+
+<p>Completed 500 Internal Server Error in 2ms</p>
+
+<p>NoMethodError (undefined method `id&#39; for nil:NilClass):</p>
+
+<pre>app/controllers/api/v1/users_controller.rb:139:in `login&#39;
+
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+Rendered /home/warlock/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)</pre>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:05:44
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;4d186321c1a7f0f354b297e8914ab240&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[36mUser Load (0.2ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 26]]
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]
+[1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;user_id&quot; = ? LIMIT 1[0m  [[&quot;user_id&quot;, 26]]
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]
+[1m[36mUser Load (0.3ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 26]]
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 26]]
+[1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;user_id&quot; = ? LIMIT 1[0m  [[&quot;user_id&quot;, 26]]</pre>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:16:34
+-0500</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mUser Load (0.1ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;4d186321c1a7f0f354b297e8914ab240&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1
+[1m[36mApiKey Load (0.3ms)[0m  [1mSELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;user_id&quot; = ? LIMIT 1[0m  [[&quot;user_id&quot;, 26]]</pre>
+
+<p>Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 1.1ms)</p>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:16:57
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;c6f00988430dbc8e83a7bc7ab5256346&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1</pre>
+
+<p>Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)</p>
+
+<p>Started POST “/api/v1/users/login” for 127.0.0.1 at 2015-01-02 12:27:44
+-0500 Processing by <a
+href="../Api/V1/UsersController.html#method-i-login">Api::V1::UsersController#login</a>
+as JSON</p>
+
+<pre>Parameters: {&quot;email&quot;=&gt;&quot;julio0060@gmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;}
+[1m[36mUser Load (0.1ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;password&quot; = &#39;4d186321c1a7f0f354b297e8914ab240&#39; AND &quot;users&quot;.&quot;email&quot; = &#39;julio0060@gmail.com&#39;  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m
+[1m[35mApiKey Load (0.1ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;user_id&quot; = ? LIMIT 1  [[&quot;user_id&quot;, 26]]</pre>
+
+<p>Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 1.5ms)</p>
 </main>
 
 

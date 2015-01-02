@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class AddRoleClient - RDoc Documentation</title>
+<title>class EmailValidator - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">ActiveRecord::Migration
+  <p class="link">ActiveModel::EachValidator
   
 </div>
 
@@ -70,7 +70,7 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-i-change">#change</a>
+    <li ><a href="#method-i-validate_each">#validate_each</a>
     
   </ul>
 </div>
@@ -78,9 +78,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-AddRoleClient">
-  <h1 id="class-AddRoleClient" class="class">
-    class AddRoleClient
+<main role="main" aria-labelledby="class-EmailValidator">
+  <h1 id="class-EmailValidator" class="class">
+    class EmailValidator
   </h1>
 
   <section class="description">
@@ -106,11 +106,11 @@
        </header>
 
     
-      <div id="method-i-change" class="method-detail ">
+      <div id="method-i-validate_each" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">change</span><span
-            class="method-args">()</span>
+          <span class="method-name">validate_each</span><span
+            class="method-args">(record, attribute, value)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -124,16 +124,12 @@
           
 
           
-          <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20150101193243_add_role_client.rb, line 2</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">change</span>
-      <span class="ruby-constant">Role</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;client&quot;</span>)
-      <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Laura&quot;</span>, <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
-      <span class="ruby-identifier">client</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">2</span>)
-      <span class="ruby-comment">#assigning permissions</span>
-      <span class="ruby-identifier">controller</span> = <span class="ruby-constant">ControllerAction</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;users&#39;</span>, <span class="ruby-identifier">controller_action_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">first</span>
-      <span class="ruby-identifier">client</span>.<span class="ruby-identifier">controller_actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_actions</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;destroy&#39;</span>).<span class="ruby-identifier">first</span>
-      <span class="ruby-identifier">client</span>.<span class="ruby-identifier">controller_actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_actions</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;update&#39;</span>).<span class="ruby-identifier">first</span>
+          <div class="method-source-code" id="validate_each-source">
+            <pre><span class="ruby-comment"># File app/validators/email_validator.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_each</span>(<span class="ruby-identifier">record</span>, <span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i</span>
+    <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-identifier">attribute</span>] <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">options</span>[<span class="ruby-value">:message</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;wrong email address&quot;</span>)
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

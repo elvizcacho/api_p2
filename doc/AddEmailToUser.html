@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class AddRoleClient - RDoc Documentation</title>
+<title>class AddEmailToUser - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -78,9 +78,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-AddRoleClient">
-  <h1 id="class-AddRoleClient" class="class">
-    class AddRoleClient
+<main role="main" aria-labelledby="class-AddEmailToUser">
+  <h1 id="class-AddEmailToUser" class="class">
+    class AddEmailToUser
   </h1>
 
   <section class="description">
@@ -125,15 +125,9 @@
 
           
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20150101193243_add_role_client.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20150102131932_add_email_to_user.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">change</span>
-      <span class="ruby-constant">Role</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;client&quot;</span>)
-      <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Laura&quot;</span>, <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
-      <span class="ruby-identifier">client</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">2</span>)
-      <span class="ruby-comment">#assigning permissions</span>
-      <span class="ruby-identifier">controller</span> = <span class="ruby-constant">ControllerAction</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;users&#39;</span>, <span class="ruby-identifier">controller_action_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">first</span>
-      <span class="ruby-identifier">client</span>.<span class="ruby-identifier">controller_actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_actions</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;destroy&#39;</span>).<span class="ruby-identifier">first</span>
-      <span class="ruby-identifier">client</span>.<span class="ruby-identifier">controller_actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_actions</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;update&#39;</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">add_column</span> <span class="ruby-value">:users</span>, <span class="ruby-value">:email</span>, <span class="ruby-value">:string</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

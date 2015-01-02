@@ -145,7 +145,7 @@ module Api
           #   
           # = Examples
           #   
-          #   resp = conn.post("/api/v1/users/login", "email" => "sebastian@gmail.com", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.post("/api/v1/users/login", "email" => "sebastian@gmail.com", "password" => "1234")
           #   
           #   resp.status
           #   => 200 - OK

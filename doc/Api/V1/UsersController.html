@@ -76,6 +76,8 @@
     
     <li ><a href="#method-i-index">#index</a>
     
+    <li ><a href="#method-i-login">#login</a>
+    
     <li ><a href="#method-i-update">#update</a>
     
   </ul>
@@ -133,11 +135,13 @@
 
 <pre>name - string     [Required]
 role_id - number  [Required]
-token - API token [Required]</pre>
+token - API token [Required]
+email - string    [Required]
+password - string [Required]</pre>
 
 <h1 id="method-i-create-label-Examples">Examples<span><a href="#method-i-create-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.get(&quot;/api/v1/users&quot;, &quot;name&quot; =&gt; &quot;Sebastian&quot;, &quot;role_id&quot; =&gt; 2, token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.get(&quot;/api/v1/users&quot;, &quot;name&quot; =&gt; &quot;Sebastian&quot;, &quot;role_id&quot; =&gt; 2, &quot;email&quot; =&gt; &quot;email@domain.com&quot;, &quot;password&quot; =&gt; &quot;1234&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 201 - Created
@@ -152,14 +156,10 @@ resp.body
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 75</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-identifier">error_messages</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>], <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>]).<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_messages</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">400</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;User was created&#39;</span>, <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">id</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">201</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create_from_model</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>], <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>], <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>], <span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -195,7 +195,7 @@ token - API token [Required]</pre>
 
 <h1 id="method-i-destroy-label-Examples">Examples<span><a href="#method-i-destroy-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.get(&quot;/api/v1/users/4&quot;, token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.get(&quot;/api/v1/users/4&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 200 - OK
@@ -209,23 +209,10 @@ resp.body
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 105</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-keyword">begin</span>
-    <span class="ruby-identifier">user</span> = <span class="ruby-constant">ApiKey</span>.<span class="ruby-identifier">find_by_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>]).<span class="ruby-identifier">user</span>
-    <span class="ruby-identifier">role</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">id</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">role</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
-      <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">destroy</span>  
-      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;User #{params[:id]} was deleted&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">role</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">to_i</span>
-      <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">destroy</span>  
-      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;User #{params[:id]} was deleted&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Only Admin or the owner account can request this action&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">401</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">destroy_from_model</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -312,6 +299,63 @@ resp.body
       </div>
 
     
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Login</p>
+
+<p>POST /api/v1/users/login</p>
+
+<p>params:</p>
+
+<pre>email - string    [Required]
+password - string [Required]</pre>
+
+<h1 id="method-i-login-label-Examples">Examples<span><a href="#method-i-login-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.post(&quot;/api/v1/users/login&quot;, &quot;email&quot; =&gt; &quot;sebastian@gmail.com&quot;, &quot;password&quot; =&gt; &quot;1234&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt; {
+      &quot;token&quot;: &quot;c56ef37ffc50aa334cc5314a1d3c162a&quot;
+   }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>]), <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">token</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{user.api_key.token}&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Invalid email or password&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">401</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-update" class="method-detail ">
         
         <div class="method-heading">
@@ -334,11 +378,13 @@ resp.body
 <pre>id - number       [Required]
 name - string     
 role_id - number  
-token - API token [Required]</pre>
+token - API token [Required]
+email - string
+password - string</pre>
 
 <h1 id="method-i-update-label-Examples">Examples<span><a href="#method-i-update-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.get(&quot;/api/v1/users/4&quot;, token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.get(&quot;/api/v1/users/4&quot;, &quot;name&quot; =&gt; Ana, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 200 - OK
@@ -352,37 +398,10 @@ resp.body
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 146</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 132</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
-  <span class="ruby-keyword">begin</span>
-    <span class="ruby-identifier">token_user</span> = <span class="ruby-constant">ApiKey</span>.<span class="ruby-identifier">find_by_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>]).<span class="ruby-identifier">user</span>
-    <span class="ruby-identifier">role</span> = <span class="ruby-identifier">token_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">id</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">role</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
-      <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-      <span class="ruby-identifier">user</span>.<span class="ruby-identifier">assign_attributes</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>], <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">role_id</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>])
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">valid?</span>
-        <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span>
-        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;User #{params[:id]} was updated&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">error_messages</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
-        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">400</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">role</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">token_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">to_i</span>
-      <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-      <span class="ruby-identifier">user</span>.<span class="ruby-identifier">assign_attributes</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>], <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">role_id</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>])
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">valid?</span>
-        <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span>
-        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;User #{params[:id]} was updated&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">error_messages</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
-        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">400</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Only Admin or the owner account can request this action&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">401</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">update_from_model</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>], <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>], <span class="ruby-value">:role_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:role_id</span>], <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>], <span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
