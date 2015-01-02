@@ -2,7 +2,7 @@ module Api
     module V1
       class UsersController < ApplicationController
 
-      	before_filter :restrict_access, :except => []
+      	before_filter :restrict_access, :except => [:login]
 
      	    ##
           # It returns an array of Users. 
@@ -49,7 +49,7 @@ module Api
     	    end
 
           ##
-          # It creates an User. 
+          # It creates an User.
           # 
           # POST /api/v1/users
           #
@@ -57,11 +57,12 @@ module Api
           #   name - string     [Required]
           #   role_id - number  [Required]
           #   token - API token [Required]
-          # 
-          #   
+          #   email - string    [Required]
+          #   password - string [Required]
+          #
           # = Examples
           #   
-          #   resp = conn.get("/api/v1/users", "name" => "Sebastian", "role_id" => 2, token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.get("/api/v1/users", "name" => "Sebastian", "role_id" => 2, "email" => "email@domain.com", "password" => "1234", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 201 - Created
@@ -73,7 +74,7 @@ module Api
           #      }
 
           def create
-            response, status = User.create_from_model(:name => params[:name], :role_id => params[:role_id])
+            response, status = User.create_from_model(:name => params[:name], :role_id => params[:role_id], :password => params[:password], :email => params[:email])
             render :json => response, :status => status
           end
 
@@ -88,7 +89,7 @@ module Api
           #   
           # = Examples
           #   
-          #   resp = conn.get("/api/v1/users/4", token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.get("/api/v1/users/4", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 200 - OK
@@ -112,11 +113,13 @@ module Api
           #   id - number       [Required]
           #   name - string     
           #   role_id - number  
-          #   token - API token [Required] 
+          #   token - API token [Required]
+          #   email - string
+          #   password - string
           #   
           # = Examples
           #   
-          #   resp = conn.get("/api/v1/users/4", token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.get("/api/v1/users/4", "name" => Ana, "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 200 - OK
@@ -127,8 +130,38 @@ module Api
           #      }
 
           def update
-            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id])
+            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :password => params[:password], :email => params[:email])
             render :json => response, :status => status
+          end
+
+          ##
+          # Login
+          # 
+          # POST /api/v1/users/login
+          #
+          # params:
+          #   email - string    [Required]
+          #   password - string [Required]
+          #   
+          # = Examples
+          #   
+          #   resp = conn.post("/api/v1/users/login", "email" => "sebastian@gmail.com", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 200 - OK
+          #
+          #   resp.body
+          #   => {
+          #         "token": "c56ef37ffc50aa334cc5314a1d3c162a"
+          #      }
+
+          def login
+            user = User.where(password: Digest::MD5.hexdigest(params[:password]), email: params[:email]).first
+            if user
+              render json: {token: "#{user.api_key.token}"}, status: 200
+            else
+              render json: {response: "Invalid email or password"}, status: 401
+            end
           end
 
         end

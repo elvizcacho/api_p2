@@ -4,21 +4,29 @@
   id: 1
   name: Sebastian
   role_id: 1
+  email: sebastian@gmail.com
+  password: <%= Digest::MD5.hexdigest('1234') %>
   
 2:
   id: 2
   name: Milena
   role_id: 2
+  email: milena@gmail.com
+  password: <%= Digest::MD5.hexdigest('1234') %>
 
 3:
   id: 3
   name: Jose
   role_id: 2
+  email: jose@gmail.com
+  password: <%= Digest::MD5.hexdigest('1234') %>
 
 4:
   id: 4
   name: Laura
   role_id: 2
+  email: laura@gmail.com
+  password: <%= Digest::MD5.hexdigest('1234') %>
 
 <% 1000.times do |n| %>
 <% n += 5%>
@@ -26,4 +34,6 @@
   id: <%= "#{n}" %>
   name: <%= "user#{n}" %>
   role_id: 2
+  email: <%= "user#{n}@gmail.com" %>
+  password: <%= Digest::MD5.hexdigest('1234567') %>
 <% end %>

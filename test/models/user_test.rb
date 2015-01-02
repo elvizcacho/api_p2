@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
     User.create(:role_id => 1)
     quantity_after_create = User.all.count
     assert(quantity_before_create == quantity_after_create, "validations control the creation of users")
-    User.create(:name => "Juan", :role_id => 1)
+    User.create(:name => "Juan", :role_id => 1, :password => '1234', :email => 'email@gmail.com')
     quantity_after_create = User.all.count
     assert(quantity_before_create == quantity_after_create - 1, "creation passed all validation")
   end
