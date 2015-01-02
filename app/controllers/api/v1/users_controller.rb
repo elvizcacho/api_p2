@@ -123,7 +123,7 @@ module Api
           #   
           # = Examples
           #   
-          #   resp = conn.put("/api/v1/users/4", "name" => Ana, "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.put("/api/v1/users/4", "name" => "Ana", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 200 - OK
@@ -169,6 +169,8 @@ module Api
           end
 
           ##
+          # It shows an User.
+          #
           # Show
           # 
           # GET /api/v1/users/:id

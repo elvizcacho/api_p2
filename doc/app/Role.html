@@ -64,7 +64,21 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-c-create_from_model">::create_from_model</a>
+    
+    <li ><a href="#method-c-destroy_from_model">::destroy_from_model</a>
+    
+    <li ><a href="#method-c-update_from_model">::update_from_model</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -90,6 +104,135 @@
     
 
     
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-create_from_model" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_from_model</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_from_model-source">
+            <pre><span class="ruby-comment"># File app/models/role.rb, line 6</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_from_model</span>(<span class="ruby-identifier">hash</span>)
+    <span class="ruby-identifier">error_messages</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:name</span>]).<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_messages</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-value">400</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Role was created&#39;</span>, <span class="ruby-identifier">role_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">id</span>}, <span class="ruby-value">201</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-destroy_from_model" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy_from_model</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="destroy_from_model-source">
+            <pre><span class="ruby-comment"># File app/models/role.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">destroy_from_model</span>(<span class="ruby-identifier">hash</span>)
+    <span class="ruby-keyword">begin</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">destroy</span>  
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Role #{hash[:id]} was deleted&quot;</span>}, <span class="ruby-value">200</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-value">404</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-update_from_model" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_from_model</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_from_model-source">
+            <pre><span class="ruby-comment"># File app/models/role.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_from_model</span>(<span class="ruby-identifier">hash</span>)
+    <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">role</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>])
+        <span class="ruby-identifier">role</span>.<span class="ruby-identifier">assign_attributes</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">role</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:name</span>])
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">role</span>.<span class="ruby-identifier">valid?</span>
+            <span class="ruby-identifier">role</span>.<span class="ruby-identifier">save</span>
+            <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Role #{hash[:id]} was updated&quot;</span>}, <span class="ruby-value">200</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">error_messages</span> = <span class="ruby-identifier">role</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
+            <span class="ruby-keyword">return</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-value">400</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-value">404</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

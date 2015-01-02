@@ -7,6 +7,7 @@ Rails.application.routes.draw do
           post 'login'
         end 
       end
+      resources :roles
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

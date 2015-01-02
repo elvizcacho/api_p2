@@ -64,7 +64,25 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-destroy">#destroy</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -90,6 +108,308 @@
     
 
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>It creates a new <a href="../../Role.html">Role</a>.</p>
+
+<p>POST /api/v1/roles</p>
+
+<p>params:</p>
+
+<pre>name - string     [Required]</pre>
+
+<h1 id="method-i-create-label-Examples">Examples<span><a href="#method-i-create-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.post(&quot;/api/v1/roles&quot;, &quot;name&quot; =&gt; &quot;guest&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 201 - Created
+
+resp.body
+=&gt; {
+      &quot;response&quot;: &quot;Role was created&quot;,
+      &quot;role_id&quot;: 3
+   }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+        <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">create_from_model</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>])
+        <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>It deletes a <a href="../../Role.html">Role</a>.</p>
+
+<p>DELETE /api/v1/roles/:id</p>
+
+<p>params:</p>
+
+<pre>id - number       [Required]
+token - API token [Required]</pre>
+
+<h1 id="method-i-destroy-label-Examples">Examples<span><a href="#method-i-destroy-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.delete(&quot;/api/v1/roles/3&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt; {
+      &quot;response&quot;: &quot;Role 3 was deleted&quot;
+   }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+    <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">destroy_from_model</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>])
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>It returns an array of Roles.  The number of roles that is returned depends
+on the Range Header parameter.</p>
+
+<p>GET /api/v1/roles</p>
+
+<p>params:</p>
+
+<pre>token - API token [Required]</pre>
+
+<p>header:</p>
+
+<pre class="ruby"><span class="ruby-identifier">range</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">items</span>=<span class="ruby-identifier">num</span><span class="ruby-operator">-</span><span class="ruby-identifier">num</span>
+</pre>
+
+<h1 id="method-i-index-label-Examples">Examples<span><a href="#method-i-index-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>range: items=0-1
+resp = conn.get(&quot;/api/v1/roles&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 206 - Partial Content
+
+resp.body
+=&gt;   [{
+       &quot;id&quot;: 1,
+       &quot;name&quot;: &quot;admin&quot;,
+       &quot;created_at&quot;: &quot;2015-01-02T21:07:54.465Z&quot;,
+       &quot;updated_at&quot;: &quot;2015-01-02T21:07:54.465Z&quot;
+     }, {
+       &quot;id&quot;: 2,
+       &quot;name&quot;: &quot;client&quot;,
+       &quot;created_at&quot;: &quot;2015-01-02T21:07:54.833Z&quot;,
+       &quot;updated_at&quot;: &quot;2015-01-02T21:07:54.833Z&quot;
+     }]</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Range&#39;</span>]
+      <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span> = <span class="ruby-identifier">get_range_header</span>()
+      <span class="ruby-identifier">limit</span> = <span class="ruby-identifier">to</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">from</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">query_response</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">limit</span>).<span class="ruby-identifier">offset</span>(<span class="ruby-identifier">from</span>).<span class="ruby-identifier">to_a</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">query_response</span>), <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">206</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;No rage header defined&#39;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">416</span> 
+        <span class="ruby-keyword">end</span> 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>It shows a <a href="../../Role.html">Role</a>.</p>
+
+<p>Show</p>
+
+<p>GET /api/v1/roles/:id</p>
+
+<p>params:</p>
+
+<pre>id - number    [Required]</pre>
+
+<h1 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.get(&quot;/api/v1/roles/2&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt;   {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;client&quot;,
+        &quot;created_at&quot;: &quot;2015-01-02T21:07:54.833Z&quot;,
+        &quot;updated_at&quot;: &quot;2015-01-02T21:07:54.833Z&quot;
+     }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">user</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">user</span>), <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>  
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>It updates a <a href="../../Role.html">Role</a>.</p>
+
+<p>PUT or PATCH /api/v1/roles/:id</p>
+
+<p>params:</p>
+
+<pre>id - number       [Required]
+name - string     
+token - API token [Required]</pre>
+
+<h1 id="method-i-update-label-Examples">Examples<span><a href="#method-i-update-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.put(&quot;/api/v1/roles/3&quot;, &quot;name&quot; =&gt; &quot;member&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt; {
+      &quot;response&quot;: &quot;Role 3 was updated&quot;
+   }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+    <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">update_from_model</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>], <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>])
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

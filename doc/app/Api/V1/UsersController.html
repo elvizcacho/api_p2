@@ -375,7 +375,9 @@ resp.body
 
         <div class="method-description">
           
-          <p>Show</p>
+          <p>It shows an <a href="../../User.html">User</a>.</p>
+
+<p>Show</p>
 
 <p>GET /api/v1/users/:id</p>
 
@@ -405,7 +407,7 @@ resp.body
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 197</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 199</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-keyword">begin</span>
     <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -452,7 +454,7 @@ password - string</pre>
 
 <h1 id="method-i-update-label-Examples">Examples<span><a href="#method-i-update-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.put(&quot;/api/v1/users/4&quot;, &quot;name&quot; =&gt; Ana, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.put(&quot;/api/v1/users/4&quot;, &quot;name&quot; =&gt; &quot;Ana&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 200 - OK
