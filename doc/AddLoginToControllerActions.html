@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class AddRoleIdToUser - RDoc Documentation</title>
+<title>class AddLoginToControllerActions - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -78,9 +78,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-AddRoleIdToUser">
-  <h1 id="class-AddRoleIdToUser" class="class">
-    class AddRoleIdToUser
+<main role="main" aria-labelledby="class-AddLoginToControllerActions">
+  <h1 id="class-AddLoginToControllerActions" class="class">
+    class AddLoginToControllerActions
   </h1>
 
   <section class="description">
@@ -125,11 +125,9 @@
 
           
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20141226160928_add_role_id_to_user.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20150102181920_add_login_to_controller_actions.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">change</span>
-  <span class="ruby-identifier">add_column</span> <span class="ruby-value">:users</span>, <span class="ruby-value">:role_id</span>, <span class="ruby-value">:integer</span>
-  <span class="ruby-identifier">add_column</span> <span class="ruby-value">:users</span>, <span class="ruby-value">:email</span>, <span class="ruby-value">:string</span>
-  <span class="ruby-identifier">add_column</span> <span class="ruby-value">:users</span>, <span class="ruby-value">:password</span>, <span class="ruby-value">:string</span>
+      <span class="ruby-constant">ControllerAction</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;login&quot;</span>, <span class="ruby-value">:controller_action_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

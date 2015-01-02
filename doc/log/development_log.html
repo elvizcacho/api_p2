@@ -5205,8 +5205,7 @@ as JSON</p>
 
 <pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
 
-<p>Migrating to <a href="../AddPasswordToUser.html">AddPasswordToUser</a>
-(20150102131548)</p>
+<p>Migrating to AddPasswordToUser (20150102131548)</p>
 
 <pre>[1m[35m (0.1ms)[0m  begin transaction
 [1m[36m (0.4ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;password&quot; varchar(255)[0m
@@ -5233,8 +5232,7 @@ as JSON</p>
 
 [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
 
-<p>Migrating to <a href="../AddEmailToUser.html">AddEmailToUser</a>
-(20150102131932)</p>
+<p>Migrating to AddEmailToUser (20150102131932)</p>
 
 <pre>[1m[35m (0.1ms)[0m  begin transaction
 [1m[36m (0.4ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;email&quot; varchar(255)[0m
@@ -5838,6 +5836,1383 @@ as JSON</p>
 [1m[35mApiKey Load (0.1ms)[0m  SELECT  &quot;api_keys&quot;.* FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;user_id&quot; = ? LIMIT 1  [[&quot;user_id&quot;, 26]]</pre>
 
 <p>Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 1.5ms)</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a
+href="../AddLoginToControllerActions.html">AddLoginToControllerActions</a>
+(20150102181920)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.4ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:23:02.195455&quot;], [&quot;name&quot;, &quot;login&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:23:02.195455&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150102181920&quot;]]
+[1m[36m (124.3ms)[0m  [1mcommit transaction[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (124.2ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.2ms)[0m  select sqlite_version(*)
+[1m[36m (108.1ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreateUsers.html">CreateUsers</a> (20141217212455)</p>
+
+<pre>[1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217212455&quot;]]
+[1m[35m (125.9ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../CreateApiKeys.html">CreateApiKeys</a>
+(20141217215541)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;api_keys&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_id&quot; integer, &quot;token&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217215541&quot;]]
+[1m[35m (133.4ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveEmailFromUsers.html">RemoveEmailFromUsers</a>
+(20141218151456)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;users&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;users&quot;
+[1m[36m (0.4ms)[0m  [1mCREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;ausers&quot;
+[1m[36m (0.1ms)[0m  [1mDROP TABLE &quot;ausers&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141218151456&quot;]]
+[1m[36m (131.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html">CreateRoles</a> (20141223194758)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.2ms)[0m  [1mCREATE TABLE &quot;roles&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223194758&quot;]]
+[1m[36m (140.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../CreateControllerActions.html">CreateControllerActions</a>
+(20141223195024)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223195024&quot;]]
+[1m[36m (152.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../PermisosTable.html">PermisosTable</a>
+(20141223202326)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;role_id&quot; integer, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223202326&quot;]]
+[1m[36m (161.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddControllerToControllerAction.html">AddControllerToControllerAction</a>
+(20141223203652)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;controller&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203652&quot;]]
+[1m[36m (151.3ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddActionToControllerAction.html">AddActionToControllerAction</a>
+(20141223203746)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (1.0ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;action&quot; varchar(255)[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203746&quot;]]
+[1m[36m (146.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveActionFromControllerAction.html">RemoveActionFromControllerAction</a>
+(20141223204150)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255), &quot;action&quot; varchar(255)) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;controller_actions&quot;
+[1m[36m (0.3ms)[0m  [1mDROP TABLE &quot;controller_actions&quot;[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;acontroller_actions&quot;[0m
+[1m[35m (0.2ms)[0m  DROP TABLE &quot;acontroller_actions&quot;
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223204150&quot;]]
+[1m[35m (158.9ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveControllerFromControllerAction.html">RemoveControllerFromControllerAction</a>
+(20141223204337)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;controller_actions&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;controller_actions&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.3ms)[0m  SELECT * FROM &quot;acontroller_actions&quot;
+[1m[36m (0.3ms)[0m  [1mDROP TABLE &quot;acontroller_actions&quot;[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204337&quot;]]
+[1m[36m (133.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddNameToControllerAction.html">AddNameToControllerAction</a>
+(20141223204410)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.5ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;name&quot; varchar(255)[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204410&quot;]]
+[1m[36m (130.3ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveRolesControllerActions.html">RemoveRolesControllerActions</a>
+(20141223211241)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223211241&quot;]]
+[1m[36m (131.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RolesControllerActions.html">RolesControllerActions</a>
+(20141223211400)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.7ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) [0m
+[1m[35m (0.3ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_role_id&quot; ON &quot;roles_controller_actions&quot; (&quot;role_id&quot;)
+[1m[36m (0.2ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_controller_action_id&quot; ON &quot;roles_controller_actions&quot; (&quot;controller_action_id&quot;)
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223211400&quot;]]
+[1m[35m (144.1ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../Tabla2.html">Tabla2</a> (20141223215404)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;controller_actions_roles&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) 
+[1m[36m (0.2ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_role_id&quot; ON &quot;controller_actions_roles&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.2ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_controller_action_id&quot; ON &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;)[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223215404&quot;]]
+[1m[36m (130.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../RemoveUselessTable.html">RemoveUselessTable</a>
+(20141223225317)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (1.1ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223225317&quot;]]
+[1m[36m (145.0ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleIdToUser.html">AddRoleIdToUser</a>
+(20141226160928)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (1.1ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;role_id&quot; integer[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141226160928&quot;]]
+[1m[36m (137.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:25:52.191992&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:25:52.191992&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:25:52.202704&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:25:52.202704&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:25:52.204009&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:25:52.204009&quot;]]
+[1m[35mSQL (0.0ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:25:52.204873&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:25:52.204873&quot;]]
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:25:52.205623&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:25:52.205623&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[36m (137.1ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.3ms)[0m  select sqlite_version(*)
+[1m[36m (115.9ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreateUsers.html">CreateUsers</a> (20141217212455)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217212455&quot;]]
+[1m[35m (126.6ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../CreateApiKeys.html">CreateApiKeys</a>
+(20141217215541)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;api_keys&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_id&quot; integer, &quot;token&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.4ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217215541&quot;]]
+[1m[35m (109.9ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveEmailFromUsers.html">RemoveEmailFromUsers</a>
+(20141218151456)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;users&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;users&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;ausers&quot;
+[1m[36m (0.6ms)[0m  [1mDROP TABLE &quot;ausers&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141218151456&quot;]]
+[1m[36m (111.0ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html">CreateRoles</a> (20141223194758)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223194758&quot;]]
+[1m[36m (111.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../CreateControllerActions.html">CreateControllerActions</a>
+(20141223195024)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223195024&quot;]]
+[1m[36m (154.1ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../PermisosTable.html">PermisosTable</a>
+(20141223202326)</p>
+
+<pre>[1m[35m (0.3ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;role_id&quot; integer, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223202326&quot;]]
+[1m[36m (161.7ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddControllerToControllerAction.html">AddControllerToControllerAction</a>
+(20141223203652)</p>
+
+<pre>[1m[35m (0.3ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;controller&quot; varchar(255)[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203652&quot;]]
+[1m[36m (128.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddActionToControllerAction.html">AddActionToControllerAction</a>
+(20141223203746)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;action&quot; varchar(255)[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203746&quot;]]
+[1m[36m (115.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveActionFromControllerAction.html">RemoveActionFromControllerAction</a>
+(20141223204150)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255), &quot;action&quot; varchar(255)) [0m
+[1m[35m (0.2ms)[0m  SELECT * FROM &quot;controller_actions&quot;
+[1m[36m (0.5ms)[0m  [1mDROP TABLE &quot;controller_actions&quot;[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;acontroller_actions&quot;[0m
+[1m[35m (0.1ms)[0m  DROP TABLE &quot;acontroller_actions&quot;
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223204150&quot;]]
+[1m[35m (130.1ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveControllerFromControllerAction.html">RemoveControllerFromControllerAction</a>
+(20141223204337)</p>
+
+<pre>[1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;controller_actions&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;controller_actions&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;acontroller_actions&quot;
+[1m[36m (0.1ms)[0m  [1mDROP TABLE &quot;acontroller_actions&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204337&quot;]]
+[1m[36m (130.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddNameToControllerAction.html">AddNameToControllerAction</a>
+(20141223204410)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;name&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204410&quot;]]
+[1m[36m (120.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveRolesControllerActions.html">RemoveRolesControllerActions</a>
+(20141223211241)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.7ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223211241&quot;]]
+[1m[36m (136.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RolesControllerActions.html">RolesControllerActions</a>
+(20141223211400)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) [0m
+[1m[35m (0.2ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_role_id&quot; ON &quot;roles_controller_actions&quot; (&quot;role_id&quot;)
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_controller_action_id&quot; ON &quot;roles_controller_actions&quot; (&quot;controller_action_id&quot;)
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223211400&quot;]]
+[1m[35m (139.0ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../Tabla2.html">Tabla2</a> (20141223215404)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.0ms)[0m  CREATE TABLE &quot;controller_actions_roles&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) 
+[1m[36m (0.5ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_role_id&quot; ON &quot;controller_actions_roles&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.3ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.5ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_controller_action_id&quot; ON &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;)[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223215404&quot;]]
+[1m[36m (135.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../RemoveUselessTable.html">RemoveUselessTable</a>
+(20141223225317)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.5ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223225317&quot;]]
+[1m[36m (145.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleIdToUser.html">AddRoleIdToUser</a>
+(20141226160928)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;role_id&quot; integer[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141226160928&quot;]]
+[1m[36m (128.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:30:43.110212&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:30:43.110212&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:30:43.120509&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:30:43.120509&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:30:43.122176&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:30:43.122176&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:30:43.123188&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:30:43.123188&quot;]]
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:30:43.123944&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:30:43.123944&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:31:19.900406&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:31:19.900406&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:31:19.910568&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:31:19.910568&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:31:19.911739&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:31:19.911739&quot;]]
+[1m[35mSQL (0.0ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:31:19.912503&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:31:19.912503&quot;]]
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:31:19.913192&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:31:19.913192&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[36m (114.1ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.1ms)[0m  select sqlite_version(*)
+[1m[36m (126.5ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreateUsers.html">CreateUsers</a> (20141217212455)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217212455&quot;]]
+[1m[35m (130.8ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../CreateApiKeys.html">CreateApiKeys</a>
+(20141217215541)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.8ms)[0m  CREATE TABLE &quot;api_keys&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_id&quot; integer, &quot;token&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217215541&quot;]]
+[1m[35m (144.3ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveEmailFromUsers.html">RemoveEmailFromUsers</a>
+(20141218151456)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.1ms)[0m  CREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;users&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;users&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.3ms)[0m  SELECT * FROM &quot;ausers&quot;
+[1m[36m (0.4ms)[0m  [1mDROP TABLE &quot;ausers&quot;[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141218151456&quot;]]
+[1m[36m (104.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html">CreateRoles</a> (20141223194758)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.2ms)[0m  [1mCREATE TABLE &quot;roles&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223194758&quot;]]
+[1m[36m (115.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../CreateControllerActions.html">CreateControllerActions</a>
+(20141223195024)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (1.1ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223195024&quot;]]
+[1m[36m (145.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../PermisosTable.html">PermisosTable</a>
+(20141223202326)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;role_id&quot; integer, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223202326&quot;]]
+[1m[36m (144.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddControllerToControllerAction.html">AddControllerToControllerAction</a>
+(20141223203652)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (1.0ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;controller&quot; varchar(255)[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203652&quot;]]
+[1m[36m (128.1ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddActionToControllerAction.html">AddActionToControllerAction</a>
+(20141223203746)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;action&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203746&quot;]]
+[1m[36m (120.1ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveActionFromControllerAction.html">RemoveActionFromControllerAction</a>
+(20141223204150)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255), &quot;action&quot; varchar(255)) [0m
+[1m[35m (0.3ms)[0m  SELECT * FROM &quot;controller_actions&quot;
+[1m[36m (0.2ms)[0m  [1mDROP TABLE &quot;controller_actions&quot;[0m
+[1m[35m (0.2ms)[0m  CREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;acontroller_actions&quot;[0m
+[1m[35m (0.1ms)[0m  DROP TABLE &quot;acontroller_actions&quot;
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223204150&quot;]]
+[1m[35m (159.8ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveControllerFromControllerAction.html">RemoveControllerFromControllerAction</a>
+(20141223204337)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;controller_actions&quot;[0m
+[1m[35m (0.2ms)[0m  DROP TABLE &quot;controller_actions&quot;
+[1m[36m (0.1ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;acontroller_actions&quot;
+[1m[36m (0.1ms)[0m  [1mDROP TABLE &quot;acontroller_actions&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204337&quot;]]
+[1m[36m (139.0ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddNameToControllerAction.html">AddNameToControllerAction</a>
+(20141223204410)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;name&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204410&quot;]]
+[1m[36m (136.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveRolesControllerActions.html">RemoveRolesControllerActions</a>
+(20141223211241)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223211241&quot;]]
+[1m[36m (145.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RolesControllerActions.html">RolesControllerActions</a>
+(20141223211400)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) [0m
+[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_role_id&quot; ON &quot;roles_controller_actions&quot; (&quot;role_id&quot;)
+[1m[36m (0.3ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_controller_action_id&quot; ON &quot;roles_controller_actions&quot; (&quot;controller_action_id&quot;)
+[1m[36mSQL (0.4ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223211400&quot;]]
+[1m[35m (141.5ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../Tabla2.html">Tabla2</a> (20141223215404)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;controller_actions_roles&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) 
+[1m[36m (0.5ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_role_id&quot; ON &quot;controller_actions_roles&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.3ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.1ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_controller_action_id&quot; ON &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;)[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223215404&quot;]]
+[1m[36m (143.7ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../RemoveUselessTable.html">RemoveUselessTable</a>
+(20141223225317)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223225317&quot;]]
+[1m[36m (157.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleIdToUser.html">AddRoleIdToUser</a>
+(20141226160928)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.4ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;role_id&quot; integer[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141226160928&quot;]]
+[1m[36m (294.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:32:49.591256&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:32:49.591256&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:32:49.601822&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:32:49.601822&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:32:49.603361&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:32:49.603361&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:32:49.604386&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:32:49.604386&quot;]]
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:32:49.605467&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:32:49.605467&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:35:09.703823&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:35:09.703823&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:35:09.714254&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:35:09.714254&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:35:09.715531&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:35:09.715531&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:35:09.716832&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:35:09.716832&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:35:09.718379&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:35:09.718379&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:36:27.383027&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:36:27.383027&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:36:27.393791&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:36:27.393791&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:36:27.395067&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:36:27.395067&quot;]]
+[1m[35mSQL (0.0ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:36:27.395897&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:36:27.395897&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:36:27.396688&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:36:27.396688&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:37:57.265191&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:37:57.265191&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:37:57.277295&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:37:57.277295&quot;]]
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:37:57.278978&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:37:57.278978&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:37:57.280172&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:37:57.280172&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:37:57.281405&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:37:57.281405&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[36m (128.2ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.3ms)[0m  select sqlite_version(*)
+[1m[36m (124.0ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreateUsers.html">CreateUsers</a> (20141217212455)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.7ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217212455&quot;]]
+[1m[35m (123.2ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../CreateApiKeys.html">CreateApiKeys</a>
+(20141217215541)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;api_keys&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_id&quot; integer, &quot;token&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217215541&quot;]]
+[1m[35m (129.4ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveEmailFromUsers.html">RemoveEmailFromUsers</a>
+(20141218151456)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;users&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;users&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;ausers&quot;
+[1m[36m (0.2ms)[0m  [1mDROP TABLE &quot;ausers&quot;[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141218151456&quot;]]
+[1m[36m (121.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html">CreateRoles</a> (20141223194758)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223194758&quot;]]
+[1m[36m (128.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../CreateControllerActions.html">CreateControllerActions</a>
+(20141223195024)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223195024&quot;]]
+[1m[36m (144.7ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../PermisosTable.html">PermisosTable</a>
+(20141223202326)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;role_id&quot; integer, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223202326&quot;]]
+[1m[36m (128.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddControllerToControllerAction.html">AddControllerToControllerAction</a>
+(20141223203652)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;controller&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203652&quot;]]
+[1m[36m (119.7ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddActionToControllerAction.html">AddActionToControllerAction</a>
+(20141223203746)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;action&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203746&quot;]]
+[1m[36m (120.1ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveActionFromControllerAction.html">RemoveActionFromControllerAction</a>
+(20141223204150)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255), &quot;action&quot; varchar(255)) [0m
+[1m[35m (0.2ms)[0m  SELECT * FROM &quot;controller_actions&quot;
+[1m[36m (0.6ms)[0m  [1mDROP TABLE &quot;controller_actions&quot;[0m
+[1m[35m (0.2ms)[0m  CREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;acontroller_actions&quot;[0m
+[1m[35m (0.2ms)[0m  DROP TABLE &quot;acontroller_actions&quot;
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223204150&quot;]]
+[1m[35m (138.9ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveControllerFromControllerAction.html">RemoveControllerFromControllerAction</a>
+(20141223204337)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;controller_actions&quot;[0m
+[1m[35m (0.7ms)[0m  DROP TABLE &quot;controller_actions&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.2ms)[0m  SELECT * FROM &quot;acontroller_actions&quot;
+[1m[36m (0.4ms)[0m  [1mDROP TABLE &quot;acontroller_actions&quot;[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204337&quot;]]
+[1m[36m (155.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddNameToControllerAction.html">AddNameToControllerAction</a>
+(20141223204410)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;name&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204410&quot;]]
+[1m[36m (128.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveRolesControllerActions.html">RemoveRolesControllerActions</a>
+(20141223211241)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223211241&quot;]]
+[1m[36m (137.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RolesControllerActions.html">RolesControllerActions</a>
+(20141223211400)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) [0m
+[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_role_id&quot; ON &quot;roles_controller_actions&quot; (&quot;role_id&quot;)
+[1m[36m (0.3ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_controller_action_id&quot; ON &quot;roles_controller_actions&quot; (&quot;controller_action_id&quot;)
+[1m[36mSQL (0.4ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223211400&quot;]]
+[1m[35m (140.8ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../Tabla2.html">Tabla2</a> (20141223215404)</p>
+
+<pre>[1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.8ms)[0m  CREATE TABLE &quot;controller_actions_roles&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) 
+[1m[36m (0.4ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_role_id&quot; ON &quot;controller_actions_roles&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.4ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.1ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_controller_action_id&quot; ON &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;)[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223215404&quot;]]
+[1m[36m (127.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../RemoveUselessTable.html">RemoveUselessTable</a>
+(20141223225317)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.7ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223225317&quot;]]
+[1m[36m (129.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleIdToUser.html">AddRoleIdToUser</a>
+(20141226160928)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;role_id&quot; integer[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141226160928&quot;]]
+[1m[36m (120.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.3ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:38:38.793540&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:38:38.793540&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:38:38.806809&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:38:38.806809&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:38:38.808371&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:38:38.808371&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:38:38.809424&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:38:38.809424&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:38:38.810476&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:38:38.810476&quot;]]
+[1m[35mRole Load (0.2ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[36m (118.2ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.1ms)[0m  select sqlite_version(*)
+[1m[36m (125.2ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreateUsers.html">CreateUsers</a> (20141217212455)</p>
+
+<pre>[1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217212455&quot;]]
+[1m[35m (111.1ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../CreateApiKeys.html">CreateApiKeys</a>
+(20141217215541)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;api_keys&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_id&quot; integer, &quot;token&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217215541&quot;]]
+[1m[35m (110.8ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveEmailFromUsers.html">RemoveEmailFromUsers</a>
+(20141218151456)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;users&quot;[0m
+[1m[35m (0.2ms)[0m  DROP TABLE &quot;users&quot;
+[1m[36m (0.1ms)[0m  [1mCREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.0ms)[0m  SELECT * FROM &quot;ausers&quot;
+[1m[36m (0.1ms)[0m  [1mDROP TABLE &quot;ausers&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141218151456&quot;]]
+[1m[36m (109.5ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html">CreateRoles</a> (20141223194758)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223194758&quot;]]
+[1m[36m (119.3ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../CreateControllerActions.html">CreateControllerActions</a>
+(20141223195024)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223195024&quot;]]
+[1m[36m (135.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../PermisosTable.html">PermisosTable</a>
+(20141223202326)</p>
+
+<pre>[1m[35m (0.4ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;role_id&quot; integer, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223202326&quot;]]
+[1m[36m (144.3ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddControllerToControllerAction.html">AddControllerToControllerAction</a>
+(20141223203652)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.6ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;controller&quot; varchar(255)[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203652&quot;]]
+[1m[36m (114.0ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddActionToControllerAction.html">AddActionToControllerAction</a>
+(20141223203746)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;action&quot; varchar(255)[0m
+[1m[35mSQL (0.5ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203746&quot;]]
+[1m[36m (128.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveActionFromControllerAction.html">RemoveActionFromControllerAction</a>
+(20141223204150)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255), &quot;action&quot; varchar(255)) [0m
+[1m[35m (0.2ms)[0m  SELECT * FROM &quot;controller_actions&quot;
+[1m[36m (0.6ms)[0m  [1mDROP TABLE &quot;controller_actions&quot;[0m
+[1m[35m (0.1ms)[0m  CREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;acontroller_actions&quot;[0m
+[1m[35m (0.2ms)[0m  DROP TABLE &quot;acontroller_actions&quot;
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223204150&quot;]]
+[1m[35m (133.6ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveControllerFromControllerAction.html">RemoveControllerFromControllerAction</a>
+(20141223204337)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;controller_actions&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;controller_actions&quot;
+[1m[36m (0.1ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;acontroller_actions&quot;
+[1m[36m (0.1ms)[0m  [1mDROP TABLE &quot;acontroller_actions&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204337&quot;]]
+[1m[36m (140.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddNameToControllerAction.html">AddNameToControllerAction</a>
+(20141223204410)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;name&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204410&quot;]]
+[1m[36m (148.0ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveRolesControllerActions.html">RemoveRolesControllerActions</a>
+(20141223211241)</p>
+
+<pre>[1m[35m (0.3ms)[0m  begin transaction
+[1m[36m (1.0ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223211241&quot;]]
+[1m[36m (144.0ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RolesControllerActions.html">RolesControllerActions</a>
+(20141223211400)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) [0m
+[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_role_id&quot; ON &quot;roles_controller_actions&quot; (&quot;role_id&quot;)
+[1m[36m (0.3ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_controller_action_id&quot; ON &quot;roles_controller_actions&quot; (&quot;controller_action_id&quot;)
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223211400&quot;]]
+[1m[35m (158.4ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../Tabla2.html">Tabla2</a> (20141223215404)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;controller_actions_roles&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) 
+[1m[36m (0.5ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_role_id&quot; ON &quot;controller_actions_roles&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.3ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.4ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_controller_action_id&quot; ON &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223215404&quot;]]
+[1m[36m (141.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../RemoveUselessTable.html">RemoveUselessTable</a>
+(20141223225317)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223225317&quot;]]
+[1m[36m (128.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleIdToUser.html">AddRoleIdToUser</a>
+(20141226160928)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;role_id&quot; integer[0m
+[1m[35m (0.4ms)[0m  ALTER TABLE &quot;users&quot; ADD &quot;email&quot; varchar(255)
+[1m[36m (0.4ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;password&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141226160928&quot;]]
+[1m[36m (135.3ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:00.908247&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.908247&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:00.917986&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.917986&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:43:00.919187&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.919187&quot;]]
+[1m[35mSQL (0.0ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:43:00.920082&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.920082&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:43:00.920838&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.920838&quot;]]
+[1m[35mRole Load (0.2ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;admin@gmail.com&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:00.950975&quot;], [&quot;email&quot;, &quot;admin@gmail.com&quot;], [&quot;name&quot;, &quot;Sebastian&quot;], [&quot;password&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055&quot;], [&quot;role_id&quot;, 1], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.950975&quot;]]
+[1m[36mApiKey Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;20330f678f44640486eb7a09d79aaece&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:00.955724&quot;], [&quot;token&quot;, &quot;20330f678f44640486eb7a09d79aaece&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:00.955724&quot;], [&quot;user_id&quot;, 1]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141231171743&quot;]]
+[1m[35m (134.3ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../AddUpdateToControllerActions.html">AddUpdateToControllerActions</a>
+(20150101024325)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:43:01.099269&quot;], [&quot;name&quot;, &quot;update&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:01.099269&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20150101024325&quot;]]
+[1m[35m (153.7ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../AddRoleClient.html">AddRoleClient</a>
+(20150101193243)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:01.259068&quot;], [&quot;name&quot;, &quot;client&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:01.259068&quot;]]
+[1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;laura@gmail.com&#39; LIMIT 1[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:01.264647&quot;], [&quot;email&quot;, &quot;laura@gmail.com&quot;], [&quot;name&quot;, &quot;Laura&quot;], [&quot;password&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:01.264647&quot;]]
+[1m[36mApiKey Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;0f6d584c6478d3e472eef2d7559a6355&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:43:01.268105&quot;], [&quot;token&quot;, &quot;0f6d584c6478d3e472eef2d7559a6355&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:01.268105&quot;], [&quot;user_id&quot;, 2]]
+[1m[36mRole Load (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 2]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;name&quot; = &#39;users&#39; AND &quot;controller_actions&quot;.&quot;controller_action_id&quot; IS NULL  ORDER BY &quot;controller_actions&quot;.&quot;id&quot; ASC LIMIT 1
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ? AND &quot;controller_actions&quot;.&quot;name&quot; = &#39;destroy&#39;  ORDER BY &quot;controller_actions&quot;.&quot;id&quot; ASC LIMIT 1[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 4], [&quot;role_id&quot;, 2]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ? AND &quot;controller_actions&quot;.&quot;name&quot; = &#39;update&#39;  ORDER BY &quot;controller_actions&quot;.&quot;id&quot; ASC LIMIT 1[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mSQL (0.0ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 5], [&quot;role_id&quot;, 2]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20150101193243&quot;]]
+[1m[35m (121.0ms)[0m  commit transaction</pre>
+
+<p>Migrating to AddPasswordToUser (20150102131548)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.6ms)[0m  ALTER TABLE &quot;users&quot; ADD &quot;password&quot; varchar(255)</pre>
+
+<p>SQLite3::SQLException: duplicate column name: password: ALTER TABLE “users”
+ADD “password” varchar(255)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Migrating to <a
+href="../AddLoginToControllerActions.html">AddLoginToControllerActions</a>
+(20150102181920)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:43:28.880659&quot;], [&quot;name&quot;, &quot;login&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:43:28.880659&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150102181920&quot;]]
+[1m[36m (130.3ms)[0m  [1mcommit transaction[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (121.0ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.1ms)[0m  select sqlite_version(*)
+[1m[36m (210.5ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreateUsers.html">CreateUsers</a> (20141217212455)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.3ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217212455&quot;]]
+[1m[35m (113.5ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../CreateApiKeys.html">CreateApiKeys</a>
+(20141217215541)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.2ms)[0m  CREATE TABLE &quot;api_keys&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_id&quot; integer, &quot;token&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141217215541&quot;]]
+[1m[35m (123.8ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveEmailFromUsers.html">RemoveEmailFromUsers</a>
+(20141218151456)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;email&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.2ms)[0m  [1mSELECT * FROM &quot;users&quot;[0m
+[1m[35m (0.6ms)[0m  DROP TABLE &quot;users&quot;
+[1m[36m (0.3ms)[0m  [1mCREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.1ms)[0m  SELECT * FROM &quot;ausers&quot;
+[1m[36m (0.1ms)[0m  [1mDROP TABLE &quot;ausers&quot;[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141218151456&quot;]]
+[1m[36m (123.8ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html">CreateRoles</a> (20141223194758)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mCREATE TABLE &quot;roles&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223194758&quot;]]
+[1m[36m (115.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../CreateControllerActions.html">CreateControllerActions</a>
+(20141223195024)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223195024&quot;]]
+[1m[36m (352.3ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../PermisosTable.html">PermisosTable</a>
+(20141223202326)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.9ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;role_id&quot; integer, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223202326&quot;]]
+[1m[36m (135.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddControllerToControllerAction.html">AddControllerToControllerAction</a>
+(20141223203652)</p>
+
+<pre>[1m[35m (0.3ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;controller&quot; varchar(255)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203652&quot;]]
+[1m[36m (128.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddActionToControllerAction.html">AddActionToControllerAction</a>
+(20141223203746)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (1.0ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;action&quot; varchar(255)[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223203746&quot;]]
+[1m[36m (111.2ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveActionFromControllerAction.html">RemoveActionFromControllerAction</a>
+(20141223204150)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255), &quot;action&quot; varchar(255)) [0m
+[1m[35m (0.3ms)[0m  SELECT * FROM &quot;controller_actions&quot;
+[1m[36m (0.6ms)[0m  [1mDROP TABLE &quot;controller_actions&quot;[0m
+[1m[35m (0.5ms)[0m  CREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;acontroller_actions&quot;[0m
+[1m[35m (0.1ms)[0m  DROP TABLE &quot;acontroller_actions&quot;
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223204150&quot;]]
+[1m[35m (140.5ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../RemoveControllerFromControllerAction.html">RemoveControllerFromControllerAction</a>
+(20141223204337)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE &quot;acontroller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime, &quot;controller&quot; varchar(255)) 
+[1m[36m (0.1ms)[0m  [1mSELECT * FROM &quot;controller_actions&quot;[0m
+[1m[35m (0.8ms)[0m  DROP TABLE &quot;controller_actions&quot;
+[1m[36m (0.5ms)[0m  [1mCREATE TABLE &quot;controller_actions&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;controller_action_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) [0m
+[1m[35m (0.2ms)[0m  SELECT * FROM &quot;acontroller_actions&quot;
+[1m[36m (0.5ms)[0m  [1mDROP TABLE &quot;acontroller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204337&quot;]]
+[1m[36m (136.7ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../AddNameToControllerAction.html">AddNameToControllerAction</a>
+(20141223204410)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mALTER TABLE &quot;controller_actions&quot; ADD &quot;name&quot; varchar(255)[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223204410&quot;]]
+[1m[36m (124.1ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RemoveRolesControllerActions.html">RemoveRolesControllerActions</a>
+(20141223211241)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223211241&quot;]]
+[1m[36m (128.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a
+href="../RolesControllerActions.html">RolesControllerActions</a>
+(20141223211400)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (1.0ms)[0m  [1mCREATE TABLE &quot;roles_controller_actions&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) [0m
+[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_role_id&quot; ON &quot;roles_controller_actions&quot; (&quot;role_id&quot;)
+[1m[36m (0.3ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_roles_controller_actions_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.4ms)[0m  CREATE  INDEX &quot;index_roles_controller_actions_on_controller_action_id&quot; ON &quot;roles_controller_actions&quot; (&quot;controller_action_id&quot;)
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141223211400&quot;]]
+[1m[35m (133.2ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../Tabla2.html">Tabla2</a> (20141223215404)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.9ms)[0m  CREATE TABLE &quot;controller_actions_roles&quot; (&quot;role_id&quot; integer, &quot;controller_action_id&quot; integer) 
+[1m[36m (0.5ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_role_id&quot; ON &quot;controller_actions_roles&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.3ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.4ms)[0m  [1mCREATE  INDEX &quot;index_controller_actions_roles_on_controller_action_id&quot; ON &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;)[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223215404&quot;]]
+[1m[36m (141.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../RemoveUselessTable.html">RemoveUselessTable</a>
+(20141223225317)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mDROP TABLE &quot;roles_controller_actions&quot;[0m
+[1m[35mSQL (0.3ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141223225317&quot;]]
+[1m[36m (128.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleIdToUser.html">AddRoleIdToUser</a>
+(20141226160928)</p>
+
+<pre>[1m[35m (0.3ms)[0m  begin transaction
+[1m[36m (0.8ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;role_id&quot; integer[0m
+[1m[35m (0.5ms)[0m  ALTER TABLE &quot;users&quot; ADD &quot;email&quot; varchar(255)
+[1m[36m (0.5ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;password&quot; varchar(255)[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20141226160928&quot;]]
+[1m[36m (125.9ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../Initialization.html">Initialization</a>
+(20141231171743)</p>
+
+<pre>[1m[35m (0.2ms)[0m  begin transaction
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)[0m  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.262261&quot;], [&quot;name&quot;, &quot;admin&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.262261&quot;]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.274532&quot;], [&quot;name&quot;, &quot;users&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.274532&quot;]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:44:59.275956&quot;], [&quot;name&quot;, &quot;index&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.275956&quot;]]
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:44:59.277047&quot;], [&quot;name&quot;, &quot;create&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.277047&quot;]]
+[1m[36mSQL (0.0ms)[0m  [1mINSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:44:59.277847&quot;], [&quot;name&quot;, &quot;destroy&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.277847&quot;]]
+[1m[35mRole Load (0.1ms)[0m  SELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 1]]
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;role_id&quot;, 1]]
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;admin@gmail.com&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.315192&quot;], [&quot;email&quot;, &quot;admin@gmail.com&quot;], [&quot;name&quot;, &quot;Sebastian&quot;], [&quot;password&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055&quot;], [&quot;role_id&quot;, 1], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.315192&quot;]]
+[1m[36mApiKey Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;92c1998728f762034d9ae118543772cd&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.319894&quot;], [&quot;token&quot;, &quot;92c1998728f762034d9ae118543772cd&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.319894&quot;], [&quot;user_id&quot;, 1]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20141231171743&quot;]]
+[1m[35m (139.3ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../AddUpdateToControllerActions.html">AddUpdateToControllerActions</a>
+(20150101024325)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.5ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:44:59.469300&quot;], [&quot;name&quot;, &quot;update&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.469300&quot;]]
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20150101024325&quot;]]
+[1m[35m (143.7ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../AddRoleClient.html">AddRoleClient</a>
+(20150101193243)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;roles&quot; (&quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.621423&quot;], [&quot;name&quot;, &quot;client&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.621423&quot;]]
+[1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;laura@gmail.com&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;name&quot;, &quot;password&quot;, &quot;role_id&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.625558&quot;], [&quot;email&quot;, &quot;laura@gmail.com&quot;], [&quot;name&quot;, &quot;Laura&quot;], [&quot;password&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055&quot;], [&quot;role_id&quot;, 2], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.625558&quot;]]
+[1m[36mApiKey Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;api_keys&quot;  WHERE &quot;api_keys&quot;.&quot;token&quot; = &#39;3d72a9aeeb04bf651677e1942cfb9762&#39; LIMIT 1[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;api_keys&quot; (&quot;created_at&quot;, &quot;token&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-01-02 18:44:59.626635&quot;], [&quot;token&quot;, &quot;3d72a9aeeb04bf651677e1942cfb9762&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.626635&quot;], [&quot;user_id&quot;, 2]]
+[1m[36mRole Load (0.0ms)[0m  [1mSELECT  &quot;roles&quot;.* FROM &quot;roles&quot;  WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 2]]
+[1m[35mControllerAction Load (0.1ms)[0m  SELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;name&quot; = &#39;users&#39; AND &quot;controller_actions&quot;.&quot;controller_action_id&quot; IS NULL  ORDER BY &quot;controller_actions&quot;.&quot;id&quot; ASC LIMIT 1
+[1m[36mControllerAction Load (0.1ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ? AND &quot;controller_actions&quot;.&quot;name&quot; = &#39;destroy&#39;  ORDER BY &quot;controller_actions&quot;.&quot;id&quot; ASC LIMIT 1[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 4], [&quot;role_id&quot;, 2]]
+[1m[36mControllerAction Load (0.2ms)[0m  [1mSELECT  &quot;controller_actions&quot;.* FROM &quot;controller_actions&quot;  WHERE &quot;controller_actions&quot;.&quot;controller_action_id&quot; = ? AND &quot;controller_actions&quot;.&quot;name&quot; = &#39;update&#39;  ORDER BY &quot;controller_actions&quot;.&quot;id&quot; ASC LIMIT 1[0m  [[&quot;controller_action_id&quot;, 1]]
+[1m[35mSQL (0.0ms)[0m  INSERT INTO &quot;controller_actions_roles&quot; (&quot;controller_action_id&quot;, &quot;role_id&quot;) VALUES (?, ?)  [[&quot;controller_action_id&quot;, 5], [&quot;role_id&quot;, 2]]
+[1m[36mSQL (0.1ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20150101193243&quot;]]
+[1m[35m (107.6ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a
+href="../AddLoginToControllerActions.html">AddLoginToControllerActions</a>
+(20150102181920)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.5ms)[0m  INSERT INTO &quot;controller_actions&quot; (&quot;controller_action_id&quot;, &quot;created_at&quot;, &quot;name&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;controller_action_id&quot;, 1], [&quot;created_at&quot;, &quot;2015-01-02 18:44:59.747202&quot;], [&quot;name&quot;, &quot;login&quot;], [&quot;updated_at&quot;, &quot;2015-01-02 18:44:59.747202&quot;]]
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20150102181920&quot;]]
+[1m[35m (117.3ms)[0m  commit transaction
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_controller_action_id&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.1ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_controller_actions_roles_on_role_id&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
 </main>
 
 

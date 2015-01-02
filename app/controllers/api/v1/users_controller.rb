@@ -62,7 +62,7 @@ module Api
           #
           # = Examples
           #   
-          #   resp = conn.get("/api/v1/users", "name" => "Sebastian", "role_id" => 2, "email" => "email@domain.com", "password" => "1234", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.post("/api/v1/users", "name" => "Sebastian", "role_id" => 2, "email" => "email@domain.com", "password" => "1234", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 201 - Created
@@ -89,7 +89,7 @@ module Api
           #   
           # = Examples
           #   
-          #   resp = conn.get("/api/v1/users/4", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.delete("/api/v1/users/4", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 200 - OK
@@ -119,7 +119,7 @@ module Api
           #   
           # = Examples
           #   
-          #   resp = conn.get("/api/v1/users/4", "name" => Ana, "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.put("/api/v1/users/4", "name" => Ana, "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 200 - OK

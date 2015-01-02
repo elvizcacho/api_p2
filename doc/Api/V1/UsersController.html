@@ -141,7 +141,7 @@ password - string [Required]</pre>
 
 <h1 id="method-i-create-label-Examples">Examples<span><a href="#method-i-create-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.get(&quot;/api/v1/users&quot;, &quot;name&quot; =&gt; &quot;Sebastian&quot;, &quot;role_id&quot; =&gt; 2, &quot;email&quot; =&gt; &quot;email@domain.com&quot;, &quot;password&quot; =&gt; &quot;1234&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.post(&quot;/api/v1/users&quot;, &quot;name&quot; =&gt; &quot;Sebastian&quot;, &quot;role_id&quot; =&gt; 2, &quot;email&quot; =&gt; &quot;email@domain.com&quot;, &quot;password&quot; =&gt; &quot;1234&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 201 - Created
@@ -195,7 +195,7 @@ token - API token [Required]</pre>
 
 <h1 id="method-i-destroy-label-Examples">Examples<span><a href="#method-i-destroy-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.get(&quot;/api/v1/users/4&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.delete(&quot;/api/v1/users/4&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 200 - OK
@@ -384,7 +384,7 @@ password - string</pre>
 
 <h1 id="method-i-update-label-Examples">Examples<span><a href="#method-i-update-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<pre>resp = conn.get(&quot;/api/v1/users/4&quot;, &quot;name&quot; =&gt; Ana, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+<pre>resp = conn.put(&quot;/api/v1/users/4&quot;, &quot;name&quot; =&gt; Ana, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
 
 resp.status
 =&gt; 200 - OK
