@@ -164,6 +164,35 @@ module Api
             end
           end
 
+          ##
+          # Show
+          # 
+          # GET /api/v1/users/:id
+          #
+          # params:
+          #   id - number    [Required]
+          #      
+          # = Examples
+          #   
+          #   resp = conn.get("/api/v1/users/1", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 200 - OK
+          #
+          #   resp.body
+          #   => {
+          #         "token": "c56ef37ffc50aa334cc5314a1d3c162a"
+          #      }
+
+          def show
+            begin
+              user = User.find(params[:id])
+              render json: ActiveSupport::JSON.encode(user), status: 200  
+            rescue Exception => e
+              render json: {response: "#{e}"}, status: 404
+            end
+          end
+
         end
     end
 end
