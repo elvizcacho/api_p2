@@ -24,17 +24,21 @@ module Api
           #
           #   resp.body
           #   => [{
-          #         "id": 4,
-          #         "name": "Sebas",
-          #         "created_at": "2014-12-18T15:29:17.738Z",
-          #         "updated_at": "2014-12-18T15:29:17.738Z",
-          #         "role_id": 2
+          #         "id": 1,
+          #         "name": "Sebastian",
+          #         "created_at": "2015-01-02T20:44:15.661Z",
+          #         "updated_at": "2015-01-02T20:44:15.661Z",
+          #         "role_id": 1,
+          #         "email": "admin@gmail.com",
+          #         "password": "81dc9bdb52d04dc20036dbd8313ed055"
           #       }, {
-          #         "id": 5,
-          #         "name": "Luis Alvarez",
-          #         "created_at": "2014-12-19T15:06:31.038Z",
-          #         "updated_at": "2014-12-19T15:06:31.038Z",
-          #         "role_id": 2
+          #          "id": 2,
+          #          "name": "Laura",
+          #          "created_at": "2015-01-02T20:44:15.957Z",
+          #          "updated_at": "2015-01-02T20:44:15.957Z",
+          #          "role_id": 2,
+          #          "email": "laura@gmail.com",
+          #          "password": "81dc9bdb52d04dc20036dbd8313ed055"
           #       }]
         
           def index
@@ -181,7 +185,13 @@ module Api
           #
           #   resp.body
           #   => {
-          #         "token": "c56ef37ffc50aa334cc5314a1d3c162a"
+          #        "id": 1,
+          #        "name": "Sebastian",
+          #        "created_at": "2015-01-02T20:44:15.661Z",
+          #        "updated_at": "2015-01-02T20:44:15.661Z",
+          #        "role_id": 1,
+          #        "email": "admin@gmail.com",
+          #        "password": "81dc9bdb52d04dc20036dbd8313ed055"
           #      }
 
           def show
