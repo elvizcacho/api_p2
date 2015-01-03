@@ -78,6 +78,8 @@
     
     <li ><a href="#method-i-login">#login</a>
     
+    <li ><a href="#method-i-role">#role</a>
+    
     <li ><a href="#method-i-show">#show</a>
     
     <li ><a href="#method-i-update">#update</a>
@@ -129,7 +131,7 @@
 
         <div class="method-description">
           
-          <p>It creates an <a href="../../User.html">User</a>.</p>
+          <p>Creates an <a href="../../User.html">User</a>.</p>
 
 <p>POST /api/v1/users</p>
 
@@ -186,7 +188,7 @@ resp.body
 
         <div class="method-description">
           
-          <p>It deletes an <a href="../../User.html">User</a>.</p>
+          <p>Deletes an <a href="../../User.html">User</a>.</p>
 
 <p>DELETE /api/v1/users/:id</p>
 
@@ -239,8 +241,8 @@ resp.body
 
         <div class="method-description">
           
-          <p>It returns an array of Users.  The number of users that is returned depends
-on the Range Header parameter.</p>
+          <p>Returns an array of Users.  The number of users that is returned depends on
+the Range Header parameter.</p>
 
 <p>GET /api/v1/users</p>
 
@@ -362,6 +364,67 @@ resp.body
       </div>
 
     
+      <div id="method-i-role" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">role</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets <a href="../../User.html">User</a> role.</p>
+
+<p><a href="../../Role.html">Role</a></p>
+
+<p>GET /api/v1/users/:id/role</p>
+
+<p>params:</p>
+
+<pre>id - number    [Required]</pre>
+
+<h1 id="method-i-role-label-Examples">Examples<span><a href="#method-i-role-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.get(&quot;/api/v1/users/1/role&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt; {
+     &quot;id&quot;: 1,
+     &quot;name&quot;: &quot;admin&quot;,
+     &quot;created_at&quot;: &quot;2015-01-02T21:07:54.465Z&quot;,
+     &quot;updated_at&quot;: &quot;2015-01-02T21:07:54.465Z&quot;
+   }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="role-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">role</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">role</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">role</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">role</span>), <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>  
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-show" class="method-detail ">
         
         <div class="method-heading">
@@ -375,7 +438,7 @@ resp.body
 
         <div class="method-description">
           
-          <p>It shows an <a href="../../User.html">User</a>.</p>
+          <p>Shows an <a href="../../User.html">User</a>.</p>
 
 <p>Show</p>
 
@@ -439,7 +502,7 @@ resp.body
 
         <div class="method-description">
           
-          <p>It updates an <a href="../../User.html">User</a>.</p>
+          <p>Updates an <a href="../../User.html">User</a>.</p>
 
 <p>PUT or PATCH /api/v1/users/:id</p>
 

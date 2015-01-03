@@ -1,11 +1,11 @@
-Fri, 02 Jan 2015 17:52:52 -0500
+Sat, 03 Jan 2015 15:33:03 -0500
 README.rdoc	Thu, 18 Dec 2014 19:57:35 -0500
 app/controllers/api/v1/roles_controller.rb	Fri, 02 Jan 2015 17:47:26 -0500
-app/controllers/api/v1/users_controller.rb	Fri, 02 Jan 2015 17:35:10 -0500
+app/controllers/api/v1/users_controller.rb	Sat, 03 Jan 2015 15:32:53 -0500
 app/controllers/application_controller.rb	Thu, 01 Jan 2015 23:47:48 -0500
 app/helpers/application_helper.rb	Thu, 18 Dec 2014 19:57:35 -0500
 app/models/api_key.rb	Thu, 18 Dec 2014 19:57:35 -0500
 app/models/controller_action.rb	Fri, 26 Dec 2014 10:43:41 -0500
-app/models/role.rb	Fri, 02 Jan 2015 17:52:30 -0500
+app/models/role.rb	Sat, 03 Jan 2015 14:34:24 -0500
 app/models/user.rb	Fri, 02 Jan 2015 11:25:30 -0500
 app/validators/email_validator.rb	Fri, 02 Jan 2015 09:18:42 -0500

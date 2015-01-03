@@ -225,12 +225,9 @@ module Api
           #   resp.body
           #   => {
           #        "id": 1,
-          #        "name": "Sebastian",
-          #        "created_at": "2015-01-02T20:44:15.661Z",
-          #        "updated_at": "2015-01-02T20:44:15.661Z",
-          #        "role_id": 1,
-          #        "email": "admin@gmail.com",
-          #        "password": "81dc9bdb52d04dc20036dbd8313ed055"
+          #        "name": "admin",
+          #        "created_at": "2015-01-02T21:07:54.465Z",
+          #        "updated_at": "2015-01-02T21:07:54.465Z"
           #      }
 
           def role
