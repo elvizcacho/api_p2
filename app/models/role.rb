@@ -1,7 +1,7 @@
 class Role < ActiveRecord::Base
 	has_and_belongs_to_many :controller_actions
 	has_many :users
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness: true
 
 	def self.create_from_model(hash)
     	error_messages = self.create(:name => hash[:name]).errors.messages
