@@ -260,7 +260,7 @@ module Api
           #
           #   resp.body
           #   => {
-          #        "response": "User password 4 was updated"
+          #        "response": "User password was updated"
           #      }
 
           def update_password
