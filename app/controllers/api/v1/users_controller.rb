@@ -5,7 +5,7 @@ module Api
       	before_filter :restrict_access, :except => [:login]
 
      	    ##
-          # It returns an array of Users. 
+          # Returns an array of Users. 
           # The number of users that is returned depends on the Range Header parameter.
           #
           # GET /api/v1/users
@@ -53,7 +53,7 @@ module Api
     	    end
 
           ##
-          # It creates an User.
+          # Creates an User.
           # 
           # POST /api/v1/users
           #
@@ -83,7 +83,7 @@ module Api
           end
 
           ##
-          # It deletes an User.
+          # Deletes an User.
           # 
           # DELETE /api/v1/users/:id
           #
@@ -109,7 +109,7 @@ module Api
           end
 
           ##
-          # It updates an User.
+          # Updates an User.
           # 
           # PUT or PATCH /api/v1/users/:id
           #
@@ -169,7 +169,7 @@ module Api
           end
 
           ##
-          # It shows an User.
+          # Shows an User.
           #
           # Show
           # 
@@ -200,6 +200,43 @@ module Api
             begin
               user = User.find(params[:id])
               render json: ActiveSupport::JSON.encode(user), status: 200  
+            rescue Exception => e
+              render json: {response: "#{e}"}, status: 404
+            end
+          end
+
+          ##
+          # Gets User role.
+          #
+          # Role
+          # 
+          # GET /api/v1/users/:id/role
+          #
+          # params:
+          #   id - number    [Required]
+          #      
+          # = Examples
+          #   
+          #   resp = conn.get("/api/v1/users/1/role", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 200 - OK
+          #
+          #   resp.body
+          #   => {
+          #        "id": 1,
+          #        "name": "Sebastian",
+          #        "created_at": "2015-01-02T20:44:15.661Z",
+          #        "updated_at": "2015-01-02T20:44:15.661Z",
+          #        "role_id": 1,
+          #        "email": "admin@gmail.com",
+          #        "password": "81dc9bdb52d04dc20036dbd8313ed055"
+          #      }
+
+          def role
+            begin
+              role = User.find(params[:id]).role
+              render json: ActiveSupport::JSON.encode(role), status: 200  
             rescue Exception => e
               render json: {response: "#{e}"}, status: 404
             end

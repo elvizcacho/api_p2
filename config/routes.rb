@@ -2,12 +2,15 @@ Rails.application.routes.draw do
 
    namespace :api, defaults: {format: 'json'}  do
     namespace :v1 do
-      resources :users do
+      resources :users, except: [:new, :edit] do
+        member do
+          get 'role'
+        end
         collection  do
           post 'login'
         end 
       end
-      resources :roles
+      resources :roles, except: [:new, :edit]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
