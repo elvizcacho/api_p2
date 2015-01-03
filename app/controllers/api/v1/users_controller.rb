@@ -25,27 +25,25 @@ module Api
           #   resp.body
           #   => [{
           #         "id": 1,
-          #         "name": "Sebastian",
-          #         "created_at": "2015-01-02T20:44:15.661Z",
-          #         "updated_at": "2015-01-02T20:44:15.661Z",
           #         "role_id": 1,
+          #         "name": "Sebastian",
           #         "email": "admin@gmail.com",
-          #         "password": "81dc9bdb52d04dc20036dbd8313ed055"
-          #       }, {
-          #          "id": 2,
-          #          "name": "Laura",
-          #          "created_at": "2015-01-02T20:44:15.957Z",
-          #          "updated_at": "2015-01-02T20:44:15.957Z",
-          #          "role_id": 2,
-          #          "email": "laura@gmail.com",
-          #          "password": "81dc9bdb52d04dc20036dbd8313ed055"
-          #       }]
+          #         "created_at": "2015-01-02T21:07:54.517Z",
+          #         "updated_at": "2015-01-02T21:07:54.517Z"
+          #      }, {
+          #         "id": 2,
+          #         "role_id": 2,
+          #         "name": "Laura",
+          #         "email": "laura@gmail.com",
+          #         "created_at": "2015-01-02T21:07:54.837Z",
+          #         "updated_at": "2015-01-02T21:07:54.837Z"
+          #      }]
         
           def index
             if request.headers['Range']
               from, to = get_range_header()
               limit = to - from + 1
-              query_response = User.limit(limit).offset(from).to_a
+              query_response = User.select(:id, :role_id, :name, :email, :created_at, :updated_at).limit(limit).offset(from).to_a
               render json: ActiveSupport::JSON.encode(query_response), status: 206
             else
               render json: {response: 'No rage header defined'}, status: 416 
@@ -119,7 +117,6 @@ module Api
           #   role_id - number  
           #   token - API token [Required]
           #   email - string
-          #   password - string
           #   
           # = Examples
           #   
@@ -134,7 +131,7 @@ module Api
           #      }
 
           def update
-            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :password => params[:password], :email => params[:email])
+            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :email => params[:email])
             render :json => response, :status => status
           end
 
@@ -156,13 +153,14 @@ module Api
           #
           #   resp.body
           #   => {
+          #         "id": 1,
           #         "token": "c56ef37ffc50aa334cc5314a1d3c162a"
           #      }
 
           def login
             user = User.where(password: Digest::MD5.hexdigest(params[:password]), email: params[:email]).first
             if user
-              render json: {token: "#{user.api_key.token}"}, status: 200
+              render json: {id: "#{user.id}", token: "#{user.api_key.token}"}, status: 200
             else
               render json: {response: "Invalid email or password"}, status: 401
             end
@@ -176,8 +174,9 @@ module Api
           # GET /api/v1/users/:id
           #
           # params:
-          #   id - number    [Required]
-          #      
+          #   id - number       [Required]
+          #   token - API token [Required]
+          #
           # = Examples
           #   
           #   resp = conn.get("/api/v1/users/1", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
@@ -188,17 +187,16 @@ module Api
           #   resp.body
           #   => {
           #        "id": 1,
-          #        "name": "Sebastian",
-          #        "created_at": "2015-01-02T20:44:15.661Z",
-          #        "updated_at": "2015-01-02T20:44:15.661Z",
           #        "role_id": 1,
+          #        "name": "Sebastian",
           #        "email": "admin@gmail.com",
-          #        "password": "81dc9bdb52d04dc20036dbd8313ed055"
+          #        "created_at": "2015-01-02T21:07:54.517Z",
+          #        "updated_at": "2015-01-02T21:07:54.517Z"
           #      }
 
           def show
             begin
-              user = User.find(params[:id])
+              user = User.select(:id, :role_id, :name, :email, :created_at, :updated_at).find(params[:id])
               render json: ActiveSupport::JSON.encode(user), status: 200  
             rescue Exception => e
               render json: {response: "#{e}"}, status: 404
@@ -213,7 +211,8 @@ module Api
           # GET /api/v1/users/:id/role
           #
           # params:
-          #   id - number    [Required]
+          #   id - number       [Required]
+          #   token - API token [Required]
           #      
           # = Examples
           #   
@@ -239,6 +238,36 @@ module Api
             end
           end
 
-        end
+          ##
+          # Updates User password.
+          #
+          # update_password
+          # 
+          # PUT/PATCH /api/v1/users/:id/update_password
+          #
+          # params:
+          #   id - number       [Required]
+          #   current_password - string
+          #   new_password - string
+          #   token - API token [Required]
+          #      
+          # = Examples
+          #   
+          #   resp = conn.put("/api/v1/users/1/update_password", "id" => 1, "current_password" => "1234", "new_password" => "hola", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 200 - OK
+          #
+          #   resp.body
+          #   => {
+          #        "response": "User password 4 was updated"
+          #      }
+
+          def update_password
+            response, status = User.update_password(:id => params[:id], :current_password => params[:current_password], :new_password => params[:new_password], :token => params[:token])
+            render :json => response, :status => status
+          end
+
+      end
     end
 end

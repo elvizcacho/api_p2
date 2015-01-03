@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, except: [:new, :edit] do
         member do
-          get 'role'
+          get   'role'
+          put   'update_password'
+          patch 'update_password'
         end
         collection  do
           post 'login'

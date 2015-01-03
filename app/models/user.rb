@@ -19,9 +19,7 @@ class User < ActiveRecord::Base
     end
 
     def password_to_md5_on_update
-        unless self.password =~ /\A[0-9a-fA-F]{32}\z/ #isnotMD5?
-            self.password = Digest::MD5.hexdigest(self.password)
-        end
+        self.password = Digest::MD5.hexdigest(self.password)
     end
 
     def self.create_from_model(hash)
@@ -57,7 +55,7 @@ class User < ActiveRecord::Base
             role = token_user.role.id
             if role == 1
                 user = self.find(hash[:id])
-                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => hash[:role_id].nil? ? user.role_id : hash[:role_id], :password => hash[:password].nil? ? user.password : hash[:password], :email => hash[:email].nil? ? user.email : hash[:email])
+                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => hash[:role_id].nil? ? user.role_id : hash[:role_id], :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
             	if user.valid?
                 	user.save
                   	return {response: "User #{hash[:id]} was updated"}, 200
@@ -67,13 +65,53 @@ class User < ActiveRecord::Base
                 end
             elsif role == 2 && token_user.id == hash[:id].to_i
                 user = self.find(hash[:id])
-                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => hash[:role_id].nil? ? user.role_id : hash[:role_id], :password => hash[:password].nil? ? user.password : hash[:password], :email => hash[:email].nil? ? user.email : hash[:email])
+                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => hash[:role_id].nil? ? user.role_id : hash[:role_id], :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
                 if user.valid?
                   	user.save
                   	return {response: "User #{hash[:id]} was updated"}, 200
                 else
                   	error_messages = user.errors.messages
                   	return {errors: error_messages}, 400
+                end
+            else
+                return {response: "Only Admin or the owner account can request this action"}, 401
+            end
+        rescue Exception => e
+            return {response: "#{e}"}, 404
+        end
+    end
+
+    def self.update_password(hash)
+        begin
+            token_user = ApiKey.find_by_token(hash[:token]).user
+            role = token_user.role.id
+            if role == 1
+                user = self.find(hash[:id])
+                if hash[:new_password] && hash[:current_password] && user.password == Digest::MD5.hexdigest(hash[:current_password])
+                    user.assign_attributes(:name => user.name, :role_id => user.role_id, :password => hash[:new_password], :email => user.email)
+                    if user.valid?
+                        user.save
+                        return {response: "User password #{hash[:id]} was updated"}, 200
+                    else
+                        error_messages = user.errors.messages
+                        return {errors: error_messages}, 400 
+                    end
+                else
+                   return {response: "Current password is invalid"}, 401
+                end
+            elsif role == 2 && token_user.id == hash[:id].to_i
+                user = self.find(hash[:id])
+                if hash[:new_password] && hash[:current_password] && user.password == Digest::MD5.hexdigest(hash[:current_password])
+                    user.assign_attributes(:name => user.name, :role_id => user.role_id, :password => hash[:new_password], :email => user.email)
+                    if user.valid?
+                        user.save
+                        return {response: "User password was updated"}, 200
+                    else
+                        error_messages = user.errors.messages
+                        return {errors: error_messages}, 400 
+                    end
+                else
+                   return {response: "Current password is invalid"}, 401
                 end
             else
                 return {response: "Only Admin or the owner account can request this action"}, 401
