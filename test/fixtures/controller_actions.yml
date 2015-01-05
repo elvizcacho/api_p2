@@ -48,3 +48,28 @@
   id: 10
   name: show
   controller_action_id: 8
+
+11:
+  id: 11
+  name: create
+  controller_action_id: 8
+
+12:
+  id: 12
+  name: destroy
+  controller_action_id: 8
+
+13:
+  id: 13
+  name: update
+  controller_action_id: 8
+
+14:
+  id: 14
+  name: role
+  controller_action_id: 1
+
+15:
+  id: 15
+  name: update_password
+  controller_action_id: 1

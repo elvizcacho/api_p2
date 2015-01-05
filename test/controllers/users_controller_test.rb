@@ -64,7 +64,7 @@ module Api
         assert(User.find(11).name == 'Ana', 'user was updated by admin')
       end
 
-      test 'only an user can updated their own account' do
+      test 'only an user can update their own account' do
         username_before_update = User.find(4).name
         put :update, {:id => 4, :token => '92af12590b11095d5d7828d1a9b7a5e5', :name => "Ana"}
         assert(User.find(4).name == username_before_update, "user couldn't be updated by other user different from admin or the owner account")
@@ -72,16 +72,24 @@ module Api
         assert(User.find(2).name == 'Ana', 'user was updated by admin')
       end
 
+      test 'only admin can update the role of an user' do
+        #User tries to get admin privileges
+        role_before_update = User.find(3).role_id
+        put :update, {:id => 3, :token => '92af12590b11095d5d7828d1a9b7a5e5', :role_id => 1}
+        assert(User.find(3).role_id == role_before_update, "user role couldn't be updated by other user different to admin")
+        #Admin change the role of an user
+        put :update, {:id => 3, :token => '0474eee1800353d61a5de09259ee2f9e', :role_id => 1}
+        assert(User.find(3).role_id == 1, "Admin changed the role of the user 3")
+      end
+
     #update_password
       test 'only admin can update user password or the owner of the account' do
         #Admin
-        puts "PASSWORD: #{User.find(5).password}"
-        put :update_password, {:id => 5, :token => '0474eee1800353d61a5de09259ee2f9e', :current_password => User.find(5).password, :new_password => '12345'}
-        puts "PASSWORD: #{User.find(5).password}"
+        patch :update_password, {:id => 5, :token => '0474eee1800353d61a5de09259ee2f9e', :current_password => '1234', :new_password => '12345'}
         assert(User.find(5).password == Digest::MD5.hexdigest('12345'), 'user password was changed by admin');
         #owner
-        #put :update_password, {:id => 5, :token => ApiKey.find(5).token, :current_password => '12345', :new_password => '123456'}
-        #assert(User.find(5).password == Digest::MD5.hexdigest('123456'), 'user password was changed by owner');
+        put :update_password, {:id => 5, :token => ApiKey.find(5).token, :current_password => '12345', :new_password => '123456'}
+        assert(User.find(5).password == Digest::MD5.hexdigest('123456'), 'user password was changed by owner');
       end
 
     end

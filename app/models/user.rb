@@ -53,21 +53,12 @@ class User < ActiveRecord::Base
     	begin
             token_user = ApiKey.find_by_token(hash[:token]).user
             role = token_user.role.id
-            if role == 1
+            if role == 1 || (role == 2 && token_user.id == hash[:id].to_i)
                 user = self.find(hash[:id])
-                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => hash[:role_id].nil? ? user.role_id : hash[:role_id], :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
+                role_id = role != 1 ? user.role_id : hash[:role_id].nil? ? user.role_id : hash[:role_id] #Only admin can change the user role
+                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => role_id, :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
             	if user.valid?
                 	user.save
-                  	return {response: "User #{hash[:id]} was updated"}, 200
-                else
-                  	error_messages = user.errors.messages
-                  	return {errors: error_messages}, 400
-                end
-            elsif role == 2 && token_user.id == hash[:id].to_i
-                user = self.find(hash[:id])
-                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => hash[:role_id].nil? ? user.role_id : hash[:role_id], :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
-                if user.valid?
-                  	user.save
                   	return {response: "User #{hash[:id]} was updated"}, 200
                 else
                   	error_messages = user.errors.messages
@@ -85,27 +76,13 @@ class User < ActiveRecord::Base
         begin
             token_user = ApiKey.find_by_token(hash[:token]).user
             role = token_user.role.id
-            if role == 1
+            if role == 1 || (role == 2 && token_user.id == hash[:id].to_i)
                 user = self.find(hash[:id])
                 if hash[:new_password] && hash[:current_password] && user.password == Digest::MD5.hexdigest(hash[:current_password])
                     user.assign_attributes(:name => user.name, :role_id => user.role_id, :password => hash[:new_password], :email => user.email)
                     if user.valid?
                         user.save
                         return {response: "User password #{hash[:id]} was updated"}, 200
-                    else
-                        error_messages = user.errors.messages
-                        return {errors: error_messages}, 400 
-                    end
-                else
-                   return {response: "Current password is invalid"}, 401
-                end
-            elsif role == 2 && token_user.id == hash[:id].to_i
-                user = self.find(hash[:id])
-                if hash[:new_password] && hash[:current_password] && user.password == Digest::MD5.hexdigest(hash[:current_password])
-                    user.assign_attributes(:name => user.name, :role_id => user.role_id, :password => hash[:new_password], :email => user.email)
-                    if user.valid?
-                        user.save
-                        return {response: "User password was updated"}, 200
                     else
                         error_messages = user.errors.messages
                         return {errors: error_messages}, 400 
