@@ -35,5 +35,5 @@
   name: <%= "user#{n}" %>
   role_id: 2
   email: <%= "user#{n}@gmail.com" %>
-  password: <%= Digest::MD5.hexdigest('1234567') %>
+  password: <%= Digest::MD5.hexdigest('1234') %>
 <% end %>
