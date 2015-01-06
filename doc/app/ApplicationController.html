@@ -72,6 +72,8 @@
     
     <li ><a href="#method-i-get_range_header">#get_range_header</a>
     
+    <li ><a href="#method-i-set_locale">#set_locale</a>
+    
   </ul>
 </div>
 
@@ -125,11 +127,52 @@
 
           
           <div class="method-source-code" id="get_range_header-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 54</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_range_header</span>
   <span class="ruby-identifier">range</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Range&#39;</span>]
   <span class="ruby-identifier">range</span> = <span class="ruby-identifier">range</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\w+\s*=\s*(\w+)\s*-\s*(\w+)/</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">range</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">range</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_locale" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_locale</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_locale-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_locale</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:locale</span>]
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:locale</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">extract_locale_from_accept_language_header</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;es&#39;</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-string">&#39;es&#39;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">extract_locale_from_accept_language_header</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;en&#39;</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-string">&#39;en&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">default_locale</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

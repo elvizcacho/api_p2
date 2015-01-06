@@ -135,7 +135,7 @@
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">error_messages</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
         <span class="ruby-keyword">return</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-value">400</span>
     <span class="ruby-keyword">else</span>
-        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Role was created&#39;</span>, <span class="ruby-identifier">role_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">id</span>}, <span class="ruby-value">201</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;roles.create.response&#39;</span>), <span class="ruby-identifier">role_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">id</span>}, <span class="ruby-value">201</span>
     <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -171,7 +171,7 @@
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">destroy_from_model</span>(<span class="ruby-identifier">hash</span>)
     <span class="ruby-keyword">begin</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">destroy</span>  
-        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Role #{hash[:id]} was deleted&quot;</span>}, <span class="ruby-value">200</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;roles.delete.response&#39;</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>])}, <span class="ruby-value">200</span>
     <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
         <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-value">404</span>
     <span class="ruby-keyword">end</span>
@@ -212,7 +212,7 @@
         <span class="ruby-identifier">role</span>.<span class="ruby-identifier">assign_attributes</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">role</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:name</span>])
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">role</span>.<span class="ruby-identifier">valid?</span>
             <span class="ruby-identifier">role</span>.<span class="ruby-identifier">save</span>
-            <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Role #{hash[:id]} was updated&quot;</span>}, <span class="ruby-value">200</span>
+            <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;roles.update.response&#39;</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>])}, <span class="ruby-value">200</span>
         <span class="ruby-keyword">else</span>
             <span class="ruby-identifier">error_messages</span> = <span class="ruby-identifier">role</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
             <span class="ruby-keyword">return</span> {<span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_messages</span>}, <span class="ruby-value">400</span>
