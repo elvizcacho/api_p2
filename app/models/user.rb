@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       	if error_messages.to_a.length != 0
             return {errors: error_messages}, 400
         else
-            return {response: 'User was created', user_id: self.last.id}, 201
+            return {response: I18n.t('users.create.response'), user_id: self.last.id}, 201
         end	
     end
 
@@ -35,14 +35,11 @@ class User < ActiveRecord::Base
     	begin
             user = ApiKey.find_by_token(hash[:token]).user
             role = user.role.id
-            if role == 1
+            if role == 1 || (role == 2 && user.id == hash[:id].to_i)
                 self.find(hash[:id]).destroy  
-                return {response: "User #{hash[:id]} was deleted"}, 200
-            elsif role == 2 && user.id == hash[:id].to_i
-                self.find(hash[:id]).destroy  
-                return {response: "User #{hash[:id]} was deleted"}, 200
+                return {response: I18n.t('users.delete.response', id: hash[:id])}, 200
             else
-                return {response: "Only Admin or the owner account can request this action"}, 401
+                return {response: I18n.t('users.delete.error1')}, 401
             end
         rescue Exception => e
             return {response: "#{e}"}, 404
@@ -59,13 +56,13 @@ class User < ActiveRecord::Base
                 user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => role_id, :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
             	if user.valid?
                 	user.save
-                  	return {response: "User #{hash[:id]} was updated"}, 200
+                  	return {response: I18n.t('users.update.response', id: hash[:id])}, 200
                 else
                   	error_messages = user.errors.messages
                   	return {errors: error_messages}, 400
                 end
             else
-                return {response: "Only Admin or the owner account can request this action"}, 401
+                return {response: I18n.t('users.update.error1')}, 401
             end
         rescue Exception => e
             return {response: "#{e}"}, 404
@@ -82,16 +79,16 @@ class User < ActiveRecord::Base
                     user.assign_attributes(:name => user.name, :role_id => user.role_id, :password => hash[:new_password], :email => user.email)
                     if user.valid?
                         user.save
-                        return {response: "User password #{hash[:id]} was updated"}, 200
+                        return {response: I18n.t('users.update_password.response', id: hash[:id])}, 200
                     else
                         error_messages = user.errors.messages
                         return {errors: error_messages}, 400 
                     end
                 else
-                   return {response: "Current password is invalid"}, 401
+                   return {errors: I18n.t('users.update_password.error1')}, 401
                 end
             else
-                return {response: "Only Admin or the owner account can request this action"}, 401
+                return {response: I18n.t('users.update_password.error2')}, 401
             end
         rescue Exception => e
             return {response: "#{e}"}, 404

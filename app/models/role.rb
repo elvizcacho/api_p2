@@ -8,14 +8,14 @@ class Role < ActiveRecord::Base
       	if error_messages.to_a.length != 0
             return {errors: error_messages}, 400
         else
-            return {response: 'Role was created', role_id: self.last.id}, 201
+            return {response: I18n.t('roles.create.response'), role_id: self.last.id}, 201
         end
     end
 
     def self.destroy_from_model(hash)
     	begin
             self.find(hash[:id]).destroy  
-            return {response: "Role #{hash[:id]} was deleted"}, 200
+            return {response: I18n.t('roles.delete.response', id: hash[:id])}, 200
         rescue Exception => e
             return {response: "#{e}"}, 404
         end
@@ -27,7 +27,7 @@ class Role < ActiveRecord::Base
             role.assign_attributes(:name => hash[:name].nil? ? role.name : hash[:name])
             if role.valid?
                	role.save
-               	return {response: "Role #{hash[:id]} was updated"}, 200
+               	return {response: I18n.t('roles.update.response', id: hash[:id])}, 200
             else
                	error_messages = role.errors.messages
                	return {errors: error_messages}, 400

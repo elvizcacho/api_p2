@@ -5,12 +5,13 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery with: :null_session
+  before_filter :set_locale
 
   private
 
   def restrict_access
   	unless (restric_access_by_params || restrict_access_by_header) && restrict_access_by_role
-  		render json: {message: 'Invalid API Token'}, status: 401
+  		render json: {response: t('app.restrict_access.response')}, status: 401
   		return
   	end
   	@current_user = @api_key.user if @api_key
@@ -55,6 +56,24 @@ class ApplicationController < ActionController::Base
     range = request.headers['Range']
     range = range.scan(/\w+\s*=\s*(\w+)\s*-\s*(\w+)/)
     return range[0][0].to_i, range[0][1].to_i
+  end
+
+  def set_locale
+    if params[:locale]
+      I18n.locale = params[:locale]
+    elsif extract_locale_from_accept_language_header == 'es'
+      I18n.locale = 'es'
+    elsif extract_locale_from_accept_language_header == 'en'
+      I18n.locale = 'en'
+    else
+      I18n.locale = I18n.default_locale
+    end
+  end
+
+  private
+
+  def extract_locale_from_accept_language_header
+    request.headers['Accept-Language'].nil? ? 'en' : request.headers['Accept-Language'].scan(/^[a-z]{2}/).first
   end
 
 end

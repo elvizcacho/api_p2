@@ -46,7 +46,7 @@ module Api
               query_response = User.select(:id, :role_id, :name, :email, :created_at, :updated_at).limit(limit).offset(from).to_a
               render json: ActiveSupport::JSON.encode(query_response), status: 206
             else
-              render json: {response: 'No rage header defined'}, status: 416 
+              render json: {response: t('users.index.response')}, status: 416 
             end
     	    end
 
@@ -162,7 +162,7 @@ module Api
             if user
               render json: {id: "#{user.id}", token: "#{user.api_key.token}"}, status: 200
             else
-              render json: {response: "Invalid email or password"}, status: 401
+              render json: {response: t('users.login.response')}, status: 401
             end
           end
 

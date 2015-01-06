@@ -19,5 +19,49 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
+
 en:
-  hello: "Hello world"
+
+#Responses
+  app:
+    restrict_access:
+      response: "Invalid API token"
+
+  users:
+    index:
+      response: "No rage header defined"
+    create:
+      response: "User was created"
+    delete:
+      response: "User %{id} was deleted"
+      error1: "Only Admin or the owner account can request this action"
+    update:
+      response: "User %{id} was updated"
+      error1: "Only Admin or the owner account can request this action"
+    update_password:
+      response: "User %{id} password was updated"
+      error1: "Current password is invalid"
+      error2: "Only Admin or the owner account can request this action"
+    login:
+      response: "Invalid email or password"
+
+  roles:
+    index:
+      response: "No rage header defined"
+    created:
+      response: "Role was created"
+    delete:
+      response: "Role %{id} was deleted"
+    update:
+      response: "Role %{id} was updated"
+    
+
+#Validation errors
+  activerecord:
+    errors:
+      models:
+        user: 
+          attributes:
+            email:
+              invalid: "invalid email"

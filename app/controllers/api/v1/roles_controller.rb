@@ -42,7 +42,7 @@ module Api
               query_response = Role.limit(limit).offset(from).to_a
               render json: ActiveSupport::JSON.encode(query_response), status: 206
             else
-              render json: {response: 'No rage header defined'}, status: 416 
+              render json: {response: t('roles.index.response')}, status: 416 
            	end	
       	end
 

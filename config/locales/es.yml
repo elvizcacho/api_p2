@@ -1,0 +1,72 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+
+
+es:
+
+#Responses
+  app:
+    restrict_access:
+      response: "Token invalido"
+
+  users:
+    index:
+      response: "El rango no fue definido en el header"
+    create:
+      response: "Usuario fue creado"
+    delete:
+      response: "Usuario %{id} fue eliminado"
+      error1: "Unicamente el administrador o el dueño de la cuenta pueden solicitar esta acción"
+    update:
+      response: "Usuario %{id} fue eliminado"
+      error1: "Unicamente el administrador o el dueño de la cuenta pueden solicitar esta acción"
+    update_password:
+      response: "La contraseña del usuario %{id} fue actualizada"
+      error1: "La contraseña actual es invalida"
+      error2: "Unicamente el administrador o el dueño de la cuenta pueden solicitar esta acción"
+    login:
+      response: "email o contraseña invalidos"
+
+
+#Validation errors
+  activerecord:
+    errors:
+      models:
+        user: 
+          attributes:
+            name:
+              blank: "nombre no puede ser nulo"
+              too_short: "La longitud del nombre debe ser minimo de %{count} caracteres"
+            role_id:
+              blank: "role_id no puede ser nulo"
+            email:
+              blank: "email no puede ser nulo"
+              invalid: "email no valido"
+              taken: "email ya ha sido registrado"
+            password:
+              blank: "la contraseña no puede ser nula"
+              too_short: "la longitud de la contraseña debe ser minimo de %{count} caracteres"
+        role:
+          attributes:
+            name:
+              blank: "el nombre del rol no puede ser nulo"
+              taken: "el nombre del rol ya ha sido registrado"
