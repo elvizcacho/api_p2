@@ -8,6 +8,15 @@ Bundler.require(*Rails.groups)
 
 module Api1
   class Application < Rails::Application
+
+    # Support for Cross-Origin Resource Sharing
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*' #Change this to provide better security tu your App
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options]
+      end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -23,5 +32,8 @@ module Api1
 
     # add custom validators path
     config.autoload_paths += %W["#{config.root}/app/validators/"]
+
+    
+
   end
 end
