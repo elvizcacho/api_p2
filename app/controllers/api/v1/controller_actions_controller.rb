@@ -7,7 +7,7 @@ module Api
         # It returns an object with all controllers and actions. 
         # 
         #
-        # GET /api/v1/roles
+        # GET /api/v1/controller_actions
         #
         # params:
         #   token - API token [Required]
@@ -15,7 +15,7 @@ module Api
         # header:
         #   
         # = Examples
-        #   resp = conn.get("/api/v1/roles", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+        #   resp = conn.get("/api/v1/controller_actions", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
         #   
         #   resp.status
         #   => 200 - OK
