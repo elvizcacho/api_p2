@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         end 
       end
       resources :roles, except: [:new, :edit]
+      resources :controller_actions, only: [:index]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

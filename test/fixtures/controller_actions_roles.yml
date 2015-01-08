@@ -18,3 +18,7 @@
 5:
   role_id : 2
   controller_action_id: 15
+
+6:
+  role_id : 1
+  controller_action_id: 16
