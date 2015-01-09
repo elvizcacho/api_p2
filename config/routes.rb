@@ -12,7 +12,11 @@ Rails.application.routes.draw do
           post 'login'
         end 
       end
-      resources :roles, except: [:new, :edit]
+      resources :roles, except: [:new, :edit] do
+        member do
+          get 'permissions'
+        end
+      end
       resources :controller_actions, only: [:index]
     end
   end

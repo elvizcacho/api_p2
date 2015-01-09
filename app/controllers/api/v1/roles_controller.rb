@@ -181,7 +181,7 @@ module Api
         #      }
 
         def permissions
-            response, status = Role.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name])
+            response, status = Role.permissions(:id => params[:id])
             render :json => response, :status => status
         end
 

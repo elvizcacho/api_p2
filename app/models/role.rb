@@ -37,4 +37,20 @@ class Role < ActiveRecord::Base
         end
     end
 
+    def self.permissions(hash)
+        role = self.find(hash[:id])
+        actions = role.controller_actions
+        response = []
+        for action in actions
+            response << action.id
+            permissions = action.controller_actions
+            if permissions.length > 0
+                for permission in permissions
+                    response << permission.id
+                end
+            end
+        end
+        return response, 200
+    end
+
 end

@@ -66,3 +66,15 @@
 19:
   role_id : 1
   controller_action_id: 17
+
+20:
+  role_id : 1
+  controller_action_id: 18
+
+21:
+  role_id : 1
+  controller_action_id: 19
+
+22:
+  role_id : 1
+  controller_action_id: 20

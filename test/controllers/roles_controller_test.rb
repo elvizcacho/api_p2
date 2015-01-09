@@ -43,7 +43,25 @@ module Api
       test 'only admin can update a role' do
         put :update, {:id => 1, :token => '0474eee1800353d61a5de09259ee2f9e', :name => 'super'}
         assert(Role.find(1).name == 'super', 'role was updated by admin')
-      end  
+      end
+
+      test 'I should get an array with all the permissions that an admin has' do
+        get :permissions, {:id => 1, :token => '0474eee1800353d61a5de09259ee2f9e'}
+        admin = Role.find(1)
+        actions = admin.controller_actions
+        i = 0;
+        for action in actions
+          i += 1
+          permissions = action.controller_actions
+          if permissions.length > 0
+            for permission in permissions
+              i += 1
+            end
+          end
+        end
+        obj = ActiveSupport::JSON.decode(@response.body)
+        assert(obj.length == i, 'it returned all permissions')
+      end
 
 	  end
   end
