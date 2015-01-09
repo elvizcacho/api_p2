@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
       resources :roles, except: [:new, :edit] do
         member do
-          get 'permissions'
+          get 'permissions', to: 'roles#show_permissions'
         end
       end
       resources :controller_actions, only: [:index]

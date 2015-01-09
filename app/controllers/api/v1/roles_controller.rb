@@ -180,7 +180,7 @@ module Api
         #   resp.body
         #   => [4, 5, 18, 19, 15]
 
-        def permissions
+        def show_permissions
             response, status = Role.permissions(:id => params[:id])
             render :json => response, :status => status
         end

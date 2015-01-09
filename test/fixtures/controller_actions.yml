@@ -96,5 +96,5 @@
 
 20:
   id: 20
-  name: permissions
+  name: show_permissions
   controller_action_id: 8
