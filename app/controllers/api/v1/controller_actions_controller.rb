@@ -73,7 +73,16 @@ module Api
 
       	def index
       		controllers = ControllerAction.select(:id, :name).where(:controller_action_id => nil)
-            render json: controllers.as_json(include: {controller_actions: {only: [:id, :name]}} ), status: 200
+            render json: controllers.as_json(
+                include: { controller_actions: {
+                           include: { controller_actions: {
+                                          only: [:id, :name] 
+                                      } 
+                                    },
+                           only: [:id, :name] 
+                           } 
+                        }
+            )
         end
 
       end
