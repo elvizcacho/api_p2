@@ -30,21 +30,12 @@ class ApplicationController < ActionController::Base
   end
 
   def restrict_access_by_role
-    controller_actions = ApiKey.find_by_token(params[:token]).user.role.controller_actions
+    actions = ApiKey.find_by_token(params[:token]).user.role.controller_actions
     controller = params[:controller].scan(/v\d\.{0,1}\d*\/([^\/]+)$/)[0][0]
-    for ca in controller_actions
-      if ca.controller_actions.length > 0
-        controller_name = ca.name
-        for action in ca.controller_actions
-          if action.name == params[:action] && controller_name == controller
-            return true
-          end
-        end
-      else
-        controller_name = ControllerAction.find(ca.controller_action_id).name
-        if ca.name == params[:action] && controller_name == controller
-          return true
-        end
+    for action in actions
+      controller_name = ControllerAction.find(action.controller_action_id).name
+      if action.name == params[:action] && controller_name == controller
+        return true
       end
     end
     return false

@@ -1,8 +1,4 @@
 
-1:
-  role_id: 1
-  controller_action_id: 1
-
 2:
   role_id : 2
   controller_action_id: 4
@@ -11,14 +7,62 @@
   role_id : 2
   controller_action_id: 5
 
-4:
-  role_id : 1
-  controller_action_id: 8
-
 5:
   role_id : 2
   controller_action_id: 15
 
 6:
   role_id : 1
-  controller_action_id: 16
+  controller_action_id: 2
+
+7:
+  role_id : 1
+  controller_action_id: 3
+
+8:
+  role_id : 1
+  controller_action_id: 4
+
+9:
+  role_id : 1
+  controller_action_id: 5
+
+10:
+  role_id : 1
+  controller_action_id: 6
+
+11:
+  role_id : 1
+  controller_action_id: 7
+
+12:
+  role_id : 1
+  controller_action_id: 9
+
+13:
+  role_id : 1
+  controller_action_id: 10
+
+14:
+  role_id : 1
+  controller_action_id: 11
+
+15:
+  role_id : 1
+  controller_action_id: 12
+
+16:
+  role_id : 1
+  controller_action_id: 13
+
+17:
+  role_id : 1
+  controller_action_id: 14
+
+18:
+  role_id : 1
+  controller_action_id: 15
+
+19:
+  role_id : 1
+  controller_action_id: 17
