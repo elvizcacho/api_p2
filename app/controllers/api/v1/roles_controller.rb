@@ -161,7 +161,7 @@ module Api
 
         ##
         # Gets Role permissions
-        # 
+        # It returns an array of all the id actions and permissions into actions
         # GET /api/v1/roles/:id/permissions
         #
         # params:
@@ -170,15 +170,13 @@ module Api
         #   
         # = Examples
         #   
-        #   resp = conn.get("/api/v1/roles/1/permissions", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+        #   resp = conn.get("/api/v1/roles/2/permissions", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
         #   
         #   resp.status
         #   => 200 - OK
         #
         #   resp.body
-        #   => {
-        #         "response": "Role 3 was updated"
-        #      }
+        #   => [4, 5, 18, 19, 15]
 
         def permissions
             response, status = Role.permissions(:id => params[:id])

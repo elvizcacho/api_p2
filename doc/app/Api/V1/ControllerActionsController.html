@@ -193,7 +193,16 @@ resp.body
             <pre><span class="ruby-comment"># File app/controllers/api/v1/controller_actions_controller.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
         <span class="ruby-identifier">controllers</span> = <span class="ruby-constant">ControllerAction</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value">:id</span>, <span class="ruby-value">:name</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:controller_action_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>)
-    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">controllers</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">include</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">controller_actions</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">only</span><span class="ruby-operator">:</span> [<span class="ruby-value">:id</span>, <span class="ruby-value">:name</span>]}} ), <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">200</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">controllers</span>.<span class="ruby-identifier">as_json</span>(
+        <span class="ruby-identifier">include</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">controller_actions</span><span class="ruby-operator">:</span> {
+                   <span class="ruby-identifier">include</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">controller_actions</span><span class="ruby-operator">:</span> {
+                                  <span class="ruby-identifier">only</span><span class="ruby-operator">:</span> [<span class="ruby-value">:id</span>, <span class="ruby-value">:name</span>] 
+                              } 
+                            },
+                   <span class="ruby-identifier">only</span><span class="ruby-operator">:</span> [<span class="ruby-value">:id</span>, <span class="ruby-value">:name</span>] 
+                   } 
+                }
+    )
 <span class="ruby-keyword">end</span></pre>
           </div>
           

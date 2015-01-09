@@ -127,7 +127,7 @@
 
           
           <div class="method-source-code" id="get_range_header-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 55</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_range_header</span>
   <span class="ruby-identifier">range</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Range&#39;</span>]
   <span class="ruby-identifier">range</span> = <span class="ruby-identifier">range</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\w+\s*=\s*(\w+)\s*-\s*(\w+)/</span>)
@@ -162,7 +162,7 @@
 
           
           <div class="method-source-code" id="set_locale-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 61</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">set_locale</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:locale</span>]
     <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:locale</span>]
