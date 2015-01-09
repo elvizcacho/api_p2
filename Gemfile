@@ -42,6 +42,12 @@ gem 'i18n'
 #support for Cross-Origin Resource Sharing
 gem 'rack-cors', :require => 'rack/cors'
 
+#For Heroku Deploying
+gem 'rails_12factor', group: :production
+
+#Ruby version
+ruby "2.1.2"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
