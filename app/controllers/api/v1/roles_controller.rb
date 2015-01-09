@@ -161,7 +161,7 @@ module Api
 
         ##
         # Gets Role permissions.
-        # It returns an array of all the id actions and permissions into actions
+        # It returns an array of all id actions and permissions into them.
         # GET /api/v1/roles/:id/permissions
         #
         # params:
