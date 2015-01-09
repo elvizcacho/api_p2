@@ -160,7 +160,7 @@ module Api
         end
 
         ##
-        # Gets Role permissions
+        # Gets Role permissions.
         # It returns an array of all the id actions and permissions into actions
         # GET /api/v1/roles/:id/permissions
         #
