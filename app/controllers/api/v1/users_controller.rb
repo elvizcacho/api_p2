@@ -154,13 +154,14 @@ module Api
           #   resp.body
           #   => {
           #         "id": 1,
+          #         "role_id": 1,
           #         "token": "c56ef37ffc50aa334cc5314a1d3c162a"
           #      }
 
           def login
             user = User.where(password: Digest::MD5.hexdigest(params[:password]), email: params[:email]).first
             if user
-              render json: {id: "#{user.id}", token: "#{user.api_key.token}"}, status: 200
+              render json: {id: "#{user.id}", role_id: "#{user.role_id}",token: "#{user.api_key.token}"}, status: 200
             else
               render json: {response: t('users.login.response')}, status: 401
             end

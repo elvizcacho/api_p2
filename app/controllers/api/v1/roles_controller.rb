@@ -159,6 +159,32 @@ module Api
             render :json => response, :status => status
         end
 
+        ##
+        # Gets Role permissions
+        # 
+        # GET /api/v1/roles/:id/permissions
+        #
+        # params:
+        #   id - number       [Required]
+        #   token - API token [Required]
+        #   
+        # = Examples
+        #   
+        #   resp = conn.get("/api/v1/roles/1/permissions", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+        #   
+        #   resp.status
+        #   => 200 - OK
+        #
+        #   resp.body
+        #   => {
+        #         "response": "Role 3 was updated"
+        #      }
+
+        def permissions
+            response, status = Role.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name])
+            render :json => response, :status => status
+        end
+
       end
   end
 end
