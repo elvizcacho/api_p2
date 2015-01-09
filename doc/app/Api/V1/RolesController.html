@@ -308,8 +308,11 @@ resp.body
 
         <div class="method-description">
           
-          <p>Gets <a href="../../Role.html">Role</a> permissions. It returns an array of
-all id actions and permissions into them. GET /api/v1/roles/:id/permissions</p>
+          <p>Gets <a href="../../Role.html">Role</a> permissions.</p>
+
+<p>It returns an array of all id actions and permissions into them.</p>
+
+<p>GET /api/v1/roles/:id/permissions</p>
 
 <p>params:</p>
 
@@ -330,7 +333,7 @@ resp.body
 
           
           <div class="method-source-code" id="permissions-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 181</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 183</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">permissions</span>
     <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">permissions</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
     <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
