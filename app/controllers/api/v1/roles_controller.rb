@@ -199,7 +199,7 @@ module Api
         #   
         # = Examples
         #   
-        #   resp = conn.post("/api/v1/roles/2/permissions", "permissions" => [2, 3, 4, 5],"token" => "dcbb7b36acd4438d07abafb8e28605a4")
+        #   resp = conn.post("/api/v1/roles/2/permissions", "permissions" => "2, 3, 4, 5","token" => "dcbb7b36acd4438d07abafb8e28605a4")
         #   
         #   resp.status
         #   => 200 - OK

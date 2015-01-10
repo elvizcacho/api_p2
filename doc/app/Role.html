@@ -74,7 +74,9 @@
     
     <li ><a href="#method-c-destroy_from_model">::destroy_from_model</a>
     
-    <li ><a href="#method-c-permissions">::permissions</a>
+    <li ><a href="#method-c-get_permissions">::get_permissions</a>
+    
+    <li ><a href="#method-c-set_permissions">::set_permissions</a>
     
     <li ><a href="#method-c-update_from_model">::update_from_model</a>
     
@@ -188,10 +190,10 @@
       </div>
 
     
-      <div id="method-c-permissions" class="method-detail ">
+      <div id="method-c-get_permissions" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">permissions</span><span
+          <span class="method-name">get_permissions</span><span
             class="method-args">(hash)</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -206,22 +208,55 @@
           
 
           
-          <div class="method-source-code" id="permissions-source">
+          <div class="method-source-code" id="get_permissions-source">
             <pre><span class="ruby-comment"># File app/models/role.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">permissions</span>(<span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_permissions</span>(<span class="ruby-identifier">hash</span>)
     <span class="ruby-identifier">role</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>])
     <span class="ruby-identifier">actions</span> = <span class="ruby-identifier">role</span>.<span class="ruby-identifier">controller_actions</span>
     <span class="ruby-identifier">response</span> = []
     <span class="ruby-keyword">for</span> <span class="ruby-identifier">action</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">actions</span>
         <span class="ruby-identifier">response</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">id</span>
-        <span class="ruby-identifier">permissions</span> = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">controller_actions</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">permissions</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-            <span class="ruby-keyword">for</span> <span class="ruby-identifier">permission</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">permissions</span>
-                <span class="ruby-identifier">response</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">permission</span>.<span class="ruby-identifier">id</span>
-            <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">200</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_permissions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_permissions</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_permissions-source">
+            <pre><span class="ruby-comment"># File app/models/role.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_permissions</span>(<span class="ruby-identifier">hash</span>)
+    <span class="ruby-identifier">role</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-identifier">actions</span> = <span class="ruby-identifier">role</span>.<span class="ruby-identifier">controller_actions</span>
+    <span class="ruby-identifier">role</span>.<span class="ruby-identifier">controller_actions</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">actions</span>)
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">action_id</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:permissions</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>)
+        <span class="ruby-identifier">role</span>.<span class="ruby-identifier">controller_actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ControllerAction</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">action_id</span>.<span class="ruby-identifier">to_i</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Role permissions #{role.controller_actions.length} were set&quot;</span>}, <span class="ruby-value">200</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

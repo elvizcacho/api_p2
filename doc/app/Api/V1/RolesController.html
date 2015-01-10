@@ -70,15 +70,17 @@
 
   <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-assign_permissions">#assign_permissions</a>
+    
     <li ><a href="#method-i-create">#create</a>
     
     <li ><a href="#method-i-destroy">#destroy</a>
     
     <li ><a href="#method-i-index">#index</a>
     
-    <li ><a href="#method-i-permissions">#permissions</a>
-    
     <li ><a href="#method-i-show">#show</a>
+    
+    <li ><a href="#method-i-show_permissions">#show_permissions</a>
     
     <li ><a href="#method-i-update">#update</a>
     
@@ -114,6 +116,62 @@
        <header>
          <h3>Public Instance Methods</h3>
        </header>
+
+    
+      <div id="method-i-assign_permissions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assign_permissions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets <a href="../../Role.html">Role</a> permissions.</p>
+
+<p>It sets role permissions.</p>
+
+<p>POST /api/v1/roles/:id/permissions</p>
+
+<p>params:</p>
+
+<pre>id - number       [Required]
+token - API token [Required]
+permissions - integer array - see example</pre>
+
+<h1 id="method-i-assign_permissions-label-Examples">Examples<span><a href="#method-i-assign_permissions-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.post(&quot;/api/v1/roles/2/permissions&quot;, &quot;permissions&quot; =&gt; &quot;2, 3, 4, 5&quot;,&quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt; {
+      &quot;response&quot;: &quot;Role permissions were assigned&quot;
+   }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="assign_permissions-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assign_permissions</span>
+    <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">set_permissions</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:permissions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:permissions</span>])
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
 
     
       <div id="method-i-create" class="method-detail ">
@@ -295,59 +353,6 @@ resp.body
       </div>
 
     
-      <div id="method-i-permissions" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">permissions</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Gets <a href="../../Role.html">Role</a> permissions.</p>
-
-<p>It returns an array of all id actions and permissions into them.</p>
-
-<p>GET /api/v1/roles/:id/permissions</p>
-
-<p>params:</p>
-
-<pre>id - number       [Required]
-token - API token [Required]</pre>
-
-<h1 id="method-i-permissions-label-Examples">Examples<span><a href="#method-i-permissions-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
-
-<pre>resp = conn.get(&quot;/api/v1/roles/2/permissions&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
-
-resp.status
-=&gt; 200 - OK
-
-resp.body
-=&gt; [4, 5, 18, 19, 15]</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="permissions-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 183</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">permissions</span>
-    <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">permissions</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
       <div id="method-i-show" class="method-detail ">
         
         <div class="method-heading">
@@ -398,6 +403,59 @@ resp.body
     <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
       <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">response</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{e}&quot;</span>}, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">404</span>
     <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_permissions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_permissions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets <a href="../../Role.html">Role</a> permissions.</p>
+
+<p>It returns an array of all id actions and permissions into them.</p>
+
+<p>GET /api/v1/roles/:id/permissions</p>
+
+<p>params:</p>
+
+<pre>id - number       [Required]
+token - API token [Required]</pre>
+
+<h1 id="method-i-show_permissions-label-Examples">Examples<span><a href="#method-i-show_permissions-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>resp = conn.get(&quot;/api/v1/roles/2/permissions&quot;, &quot;token&quot; =&gt; &quot;dcbb7b36acd4438d07abafb8e28605a4&quot;)
+
+resp.status
+=&gt; 200 - OK
+
+resp.body
+=&gt; [4, 5, 18, 19, 15]</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="show_permissions-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/roles_controller.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_permissions</span>
+    <span class="ruby-identifier">response</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">get_permissions</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
