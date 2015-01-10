@@ -78,3 +78,7 @@
 22:
   role_id : 1
   controller_action_id: 20
+
+23:
+  role_id : 1
+  controller_action_id: 21

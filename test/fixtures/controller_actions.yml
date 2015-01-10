@@ -98,3 +98,8 @@
   id: 20
   name: show_permissions
   controller_action_id: 8
+
+21:
+  id: 21
+  name: assign_permissions
+  controller_action_id: 8

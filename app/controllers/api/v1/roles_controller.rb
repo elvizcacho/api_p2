@@ -195,6 +195,7 @@ module Api
         # params:
         #   id - number       [Required]
         #   token - API token [Required]
+        #   permissions - integer array - see example
         #   
         # = Examples
         #   
@@ -205,15 +206,13 @@ module Api
         #
         #   resp.body
         #   => {
-        #         "response": "Role permissions were set"
+        #         "response": "Role permissions were assigned"
         #      }
 
         def assign_permissions
             response, status = Role.set_permissions(:id => params[:id], :permissions => params[:permissions])
             render :json => response, :status => status
         end
-
-
 
       end
   end

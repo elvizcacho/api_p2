@@ -43,12 +43,6 @@ class Role < ActiveRecord::Base
         response = []
         for action in actions
             response << action.id
-            permissions = action.controller_actions
-            if permissions.length > 0
-                for permission in permissions
-                    response << permission.id
-                end
-            end
         end
         return response, 200
     end
@@ -57,10 +51,10 @@ class Role < ActiveRecord::Base
         role = self.find(hash[:id])
         actions = role.controller_actions
         role.controller_actions.delete(actions)
-        for action_id in hash[:permissions]
-            role.controller_actions << ControllerAction.find(action_id)
+        for action_id in hash[:permissions].split(',')
+            role.controller_actions << ControllerAction.find(action_id.to_i)
         end
-        return {response: "Role permissions were set"}, 200
+        return {response: "Role permissions #{role.controller_actions.length} were set"}, 200
     end
 
 

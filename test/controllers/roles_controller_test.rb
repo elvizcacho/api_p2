@@ -52,16 +52,15 @@ module Api
         i = 0
         for action in actions
           i += 1
-          permissions = action.controller_actions
-          if permissions.length > 0
-            for permission in permissions
-              i += 1
-            end
-          end
         end
         obj = ActiveSupport::JSON.decode(@response.body)
-        puts "#############{i}################"
         assert(obj.length == i, 'it returned all permissions')
+      end
+
+      test 'I set 4 client role permissions' do
+        post :assign_permissions, {:id => 2, :token => '0474eee1800353d61a5de09259ee2f9e', :permissions => '2,3,4,5'}
+        n = Role.find(2).controller_actions.length
+        assert(n == 4, '4 permissions were set')
       end
 
 	  end
