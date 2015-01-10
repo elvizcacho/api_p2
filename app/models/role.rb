@@ -37,7 +37,7 @@ class Role < ActiveRecord::Base
         end
     end
 
-    def self.permissions(hash)
+    def self.get_permissions(hash)
         role = self.find(hash[:id])
         actions = role.controller_actions
         response = []
@@ -52,5 +52,17 @@ class Role < ActiveRecord::Base
         end
         return response, 200
     end
+
+    def self.set_permissions(hash)
+        role = self.find(hash[:id])
+        actions = role.controller_actions
+        role.controller_actions.delete(actions)
+        for action_id in hash[:permissions]
+            role.controller_actions << ControllerAction.find(action_id)
+        end
+        return {response: "Role permissions were set"}, 200
+    end
+
+
 
 end

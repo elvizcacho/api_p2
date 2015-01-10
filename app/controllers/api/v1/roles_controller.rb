@@ -181,9 +181,39 @@ module Api
         #   => [4, 5, 18, 19, 15]
 
         def show_permissions
-            response, status = Role.permissions(:id => params[:id])
+            response, status = Role.get_permissions(:id => params[:id])
             render :json => response, :status => status
         end
+
+        ##
+        # Sets Role permissions.
+        #
+        # It sets role permissions.
+        #
+        # POST /api/v1/roles/:id/permissions
+        #
+        # params:
+        #   id - number       [Required]
+        #   token - API token [Required]
+        #   
+        # = Examples
+        #   
+        #   resp = conn.post("/api/v1/roles/2/permissions", "permissions" => [2, 3, 4, 5],"token" => "dcbb7b36acd4438d07abafb8e28605a4")
+        #   
+        #   resp.status
+        #   => 200 - OK
+        #
+        #   resp.body
+        #   => {
+        #         "response": "Role permissions were set"
+        #      }
+
+        def assign_permissions
+            response, status = Role.set_permissions(:id => params[:id], :permissions => params[:permissions])
+            render :json => response, :status => status
+        end
+
+
 
       end
   end

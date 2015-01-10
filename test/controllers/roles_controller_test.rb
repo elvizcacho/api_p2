@@ -60,6 +60,7 @@ module Api
           end
         end
         obj = ActiveSupport::JSON.decode(@response.body)
+        puts "#############{i}################"
         assert(obj.length == i, 'it returned all permissions')
       end
 
