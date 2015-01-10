@@ -102,7 +102,7 @@ module Api
           #      }
 
           def destroy
-            response, status = User.destroy_from_model(:id => params[:id], :token => params[:token])
+            response, status = User.destroy_from_model(:id => params[:id], :token => params[:token], :controller => params[:controller], :action => params[:action])
             render :json => response, :status => status
           end
 
@@ -131,7 +131,7 @@ module Api
           #      }
 
           def update
-            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :email => params[:email])
+            response, status = User.update_from_model(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :email => params[:email], :controller => params[:controller], :action => params[:action])
             render :json => response, :status => status
           end
 
@@ -265,7 +265,7 @@ module Api
           #      }
 
           def update_password
-            response, status = User.update_password(:id => params[:id], :current_password => params[:current_password], :new_password => params[:new_password], :token => params[:token])
+            response, status = User.update_password(:id => params[:id], :current_password => params[:current_password], :new_password => params[:new_password], :token => params[:token], :controller => params[:controller], :action => params[:action])
             render :json => response, :status => status
           end
 

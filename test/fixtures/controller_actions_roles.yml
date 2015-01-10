@@ -82,3 +82,40 @@
 23:
   role_id : 1
   controller_action_id: 21
+
+24:
+  role_id : 2
+  controller_action_id: 21
+
+25:
+  role_id : 1
+  controller_action_id: 22
+
+26:
+  role_id : 1
+  controller_action_id: 23
+
+27:
+  role_id : 1
+  controller_action_id: 24
+
+28:
+  role_id : 1
+  controller_action_id: 25
+
+29:
+  role_id : 2
+  controller_action_id: 25
+
+30:
+  role_id : 1
+  controller_action_id: 26
+
+31:
+  role_id : 1
+  controller_action_id: 27
+
+32:
+  role_id : 2
+  controller_action_id: 27
+

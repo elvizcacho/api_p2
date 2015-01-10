@@ -7,9 +7,13 @@ class AddUpdateRole < ActiveRecord::Migration
     ControllerAction.create(:name => "update other users", :controller_action_id => action.id)
     ControllerAction.create(:name => "update itself", :controller_action_id => action.id)
     admin = Role.find(1);
+    client = Role.find(2);
+
     admin.controller_actions << action.controller_actions.where(name: 'update role_id').first
     admin.controller_actions << action.controller_actions.where(name: 'update password').first
     admin.controller_actions << action.controller_actions.where(name: 'update other users').first
     admin.controller_actions << action.controller_actions.where(name: 'update itself').first
+
+    client.controller_actions << action.controller_actions.where(name: 'update itself').first
   end
 end

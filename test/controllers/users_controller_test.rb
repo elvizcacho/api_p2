@@ -60,6 +60,7 @@ module Api
 
       test 'only admin can update user accounts' do
         put :update, {:id => 11, :token => '0474eee1800353d61a5de09259ee2f9e', :name => 'Ana'}
+        puts "#{@response.body}"
         assert(User.find(11).name == 'Ana', 'user was updated by admin')
       end
 

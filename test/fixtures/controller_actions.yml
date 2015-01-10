@@ -96,10 +96,41 @@
 
 20:
   id: 20
-  name: show_permissions
-  controller_action_id: 8
+  name: update other users
+  controller_action_id: 5
 
 21:
   id: 21
+  name: update itself
+  controller_action_id: 5
+
+22:
+  id: 22
+  name: show_permissions
+  controller_action_id: 8
+
+23:
+  id: 23
   name: assign_permissions
   controller_action_id: 8
+
+24:
+  id: 24
+  name: destroy other users
+  controller_action_id: 4
+
+25:
+  id: 25
+  name: destroy itself
+  controller_action_id: 4
+
+26:
+  id: 26
+  name: update other users password
+  controller_action_id: 15
+
+27:
+  id: 27
+  name: update own user password
+  controller_action_id: 15
+
