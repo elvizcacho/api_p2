@@ -10,6 +10,26 @@ class User < ActiveRecord::Base
     validates :email, presence: true, uniqueness: true, email: true
     validates :password, presence: true, length: {minimum: 3}
 
+    def get_permissions
+        
+        controller_request = params[:controller].scan(/v\d\.{0,1}\d*\/([^\/]+)$/)[0][0]
+        controller_db = ControllerAction.where(:name => controller_request, :controller_action_id => nil).first
+        action_db = ControllerAction.where(:name => params[:action], :controller_action_id => controller_db.id).first
+        permissions = action_db.controller_actions.select(:id)
+        array = []
+        for permission in permissions
+            array << permission.id
+        end
+
+        role = ApiKey.find_by_token(params[:token]).user.role
+        role_permissions = role.controller_actions
+        array2 = []
+        for role_permission in role_permissions
+            array2 << role_permission.id
+        end
+        return array, array2
+    end
+
     def create_api_key
     	ApiKey.create :user => self
     end
@@ -47,13 +67,20 @@ class User < ActiveRecord::Base
     end
 
     def self.update_from_model(hash)
+        permissions, role_permissions = get_permissions()
+        #permissions
+            update_role_id = role_permissions.include?(permissions[0])
+            update_password = role_permissions.include?(permissions[1])
+            update_other_users = role_permissions.include?(permissions[2])
+            update_itself = role_permissions.include?(permissions[3])
+        #end
     	begin
-            token_user = ApiKey.find_by_token(hash[:token]).user
-            role = token_user.role.id
-            if role == 1 || (role == 2 && token_user.id == hash[:id].to_i)
+            user_id = ApiKey.find_by_token(params[:token]).user.id
+            if update_other_users || (update_itself && user_id == hash[:id].to_i)
                 user = self.find(hash[:id])
-                role_id = role != 1 ? user.role_id : hash[:role_id].nil? ? user.role_id : hash[:role_id] #Only admin can change the user role
-                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => role_id, :password => user.password, :email => hash[:email].nil? ? user.email : hash[:email])
+                role_id = !update_role_id ? user.role_id : hash[:role_id].nil? ? user.role_id : hash[:role_id] #Only roles with "update_role_id" permission can change the user role
+                password = !update_password ? user.password : hash[:password].nil? ? user.password : hash[:password] #Only roles with "update_password" permission can change the user password
+                user.assign_attributes(:name => hash[:name].nil? ? user.name : hash[:name], :role_id => role_id, :password => password, :email => hash[:email].nil? ? user.email : hash[:email])
             	if user.valid?
                 	user.save
                   	return {response: I18n.t('users.update.response', id: hash[:id])}, 200
