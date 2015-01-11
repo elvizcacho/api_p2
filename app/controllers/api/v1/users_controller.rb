@@ -286,7 +286,7 @@ module Api
           #   
           #   header:
           #   range: items=0-1
-          #   resp = conn.get("/api/v1/users/search", "search" => "laura", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   resp = conn.get("/api/v1/users/search", "search" => "@gmail.com", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
           #   => 206 - Partial Content
