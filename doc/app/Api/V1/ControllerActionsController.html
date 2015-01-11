@@ -142,55 +142,100 @@ resp.body
          &quot;name&quot;: &quot;users&quot;,
          &quot;controller_actions&quot;: [{
                                  &quot;id&quot;: 2,
-                                 &quot;name&quot;: &quot;index&quot;
+                                 &quot;name&quot;: &quot;index&quot;,
+                                 &quot;controller_actions&quot;: []
                                  }, {
                                  &quot;id&quot;: 3,
-                                 &quot;name&quot;: &quot;create&quot;
+                                 &quot;name&quot;: &quot;create&quot;,
+                                 &quot;controller_actions&quot;: []
                                  }, {
                                  &quot;id&quot;: 4,
-                                 &quot;name&quot;: &quot;destroy&quot;
+                                 &quot;name&quot;: &quot;destroy&quot;,
+                                 &quot;controller_actions&quot;: [{
+                                                         &quot;id&quot;: 24,
+                                                         &quot;name&quot;: &quot;destroy other users&quot;
+                                                     }, {
+                                                         &quot;id&quot;: 25,
+                                                         &quot;name&quot;: &quot;destroy itself&quot;
+                                                         }]
                                  }, {
                                  &quot;id&quot;: 5,
-                                 &quot;name&quot;: &quot;update&quot;
+                                 &quot;name&quot;: &quot;update&quot;,
+                                 &quot;controller_actions&quot;: [{
+                                                         &quot;id&quot;: 18,
+                                                         &quot;name&quot;: &quot;update role_id&quot;
+                                                     }, {
+                                                         &quot;id&quot;: 19,
+                                                         &quot;name&quot;: &quot;update password&quot;
+                                                     }, {
+                                                         &quot;id&quot;: 20,
+                                                         &quot;name&quot;: &quot;update other users&quot;
+                                                     }, {
+                                                         &quot;id&quot;: 21,
+                                                         &quot;name&quot;: &quot;update itself&quot;
+                                                         }]
                                  }, {
                                  &quot;id&quot;: 6,
-                                 &quot;name&quot;: &quot;login&quot; 
+                                 &quot;name&quot;: &quot;login&quot;,
+                                 &quot;controller_actions&quot;: []
                                  }, {
                                  &quot;id&quot;: 7,
-                                 &quot;name&quot;: &quot;show&quot;
+                                 &quot;name&quot;: &quot;show&quot;,
+                                 &quot;controller_actions&quot;: []
                                  }, {
                                  &quot;id&quot;: 14,
-                                 &quot;name&quot;: &quot;role&quot;
+                                 &quot;name&quot;: &quot;role&quot;,
+                                 &quot;controller_actions&quot;: []
                                  }, {
                                  &quot;id&quot;: 15,
-                                 &quot;name&quot;: &quot;update_password&quot;
-                                }]
+                                 &quot;name&quot;: &quot;update_password&quot;,
+                                 &quot;controller_actions&quot;: [{
+                                                         &quot;id&quot;: 26,
+                                                         &quot;name&quot;: &quot;update other users password&quot;
+                                                         }, {
+                                                         &quot;id&quot;: 27,
+                                                         &quot;name&quot;: &quot;update own user password&quot;
+                                                         }]
+                                 }]
      }, {
          &quot;id&quot;: 8,
          &quot;name&quot;: &quot;roles&quot;,
          &quot;controller_actions&quot;: [{
                                  &quot;id&quot;: 9,
-                                 &quot;name&quot;: &quot;index&quot;
-                             }, {
+                                 &quot;name&quot;: &quot;index&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }, {
                                  &quot;id&quot;: 10,
-                                 &quot;name&quot;: &quot;show&quot;
-                             }, {
+                                 &quot;name&quot;: &quot;show&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }, {
                                  &quot;id&quot;: 11,
-                                 &quot;name&quot;: &quot;create&quot;
-                             }, {
+                                 &quot;name&quot;: &quot;create&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }, {
                                  &quot;id&quot;: 12,
-                                 &quot;name&quot;: &quot;destroy&quot;
-                             }, {
+                                 &quot;name&quot;: &quot;destroy&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }, {
                                  &quot;id&quot;: 13,
-                                 &quot;name&quot;: &quot;update&quot;
-                             }]
+                                 &quot;name&quot;: &quot;update&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }, {
+                                 &quot;id&quot;: 22,
+                                 &quot;name&quot;: &quot;show_permissions&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }, {
+                                 &quot;id&quot;: 23,
+                                 &quot;name&quot;: &quot;assign_permissions&quot;,
+                                 &quot;controller_actions&quot;: []
+                                 }]
      }]</pre>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/v1/controller_actions_controller.rb, line 74</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/controller_actions_controller.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
         <span class="ruby-identifier">controllers</span> = <span class="ruby-constant">ControllerAction</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value">:id</span>, <span class="ruby-value">:name</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:controller_action_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>)
     <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">controllers</span>.<span class="ruby-identifier">as_json</span>(
