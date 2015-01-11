@@ -119,5 +119,10 @@ class User < ActiveRecord::Base
             return {response: "#{e}"}, 404
         end
     end
-    
+
+    def self.search(search)
+        search_condition = "%" + search + "%"
+        self.where('name LIKE ? OR email LIKE ?', search_condition, search_condition)
+    end
+
 end

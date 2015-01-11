@@ -277,7 +277,6 @@ module Api
           # PUT/PATCH /api/v1/users/:id/update_password
           #
           # params:
-          #   id - number       
           #   name - string     
           #   role_id - number  
           #   token - API token 
@@ -296,7 +295,7 @@ module Api
           #      }
 
           def search
-            #User.where(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :email => params[:email])
+            User.search(params[:search])
             #render :json => response, :status => status
           end
 
