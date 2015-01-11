@@ -10,12 +10,16 @@ Rails.application.routes.draw do
         end
         collection  do
           post 'login'
+          get 'search', to: 'users#search'
         end 
       end
       resources :roles, except: [:new, :edit] do
         member do
           get   'permissions', to: 'roles#show_permissions'
           post  'permissions', to: 'roles#assign_permissions'
+        end
+        collection do
+          get 'search', to: 'roles#search'
         end
       end
       resources :controller_actions, only: [:index]

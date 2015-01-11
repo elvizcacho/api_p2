@@ -53,4 +53,9 @@ class Role < ActiveRecord::Base
         return {response: "Role permissions #{role.controller_actions.length} were set"}, 200
     end
 
+    def self.search(search)
+        search_condition = "%" + search + "%"
+        self.where('name LIKE ?', search_condition)
+    end
+
 end

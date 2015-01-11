@@ -15,6 +15,7 @@ module Api
           # 
           # header:
           #   range - items=num-num
+          #
           # = Examples
           #   range: items=0-1
           #   resp = conn.get("/api/v1/users", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
@@ -272,31 +273,50 @@ module Api
           ##
           # Searchs for an User
           #
-          # update_password
-          # 
-          # PUT/PATCH /api/v1/users/:id/update_password
+          # GET /api/v1/users/search
+          #
+          # header:
+          #   range - items=num-num
           #
           # params:
-          #   name - string     
-          #   role_id - number  
-          #   token - API token 
-          #   email - string
+          #   search - string     
+          #   token - API token [Required]
           #      
           # = Examples
           #   
-          #   resp = conn.put("/api/v1/users/1/update_password", "id" => 1, "current_password" => "1234", "new_password" => "hola", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   header:
+          #   range: items=0-1
+          #   resp = conn.get("/api/v1/users/search", "search" => "laura", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
           #   
           #   resp.status
-          #   => 200 - OK
+          #   => 206 - Partial Content
           #
           #   resp.body
-          #   => {
-          #        "response": "User password was updated"
-          #      }
+          #   => [{
+          #        "id": 1,
+          #        "role_id": 1,
+          #        "name": "Sebastian",
+          #        "email": "admin@gmail.com",
+          #        "created_at": "2015-01-10T23:38:39.928Z",
+          #        "updated_at": "2015-01-10T23:38:39.928Z"
+          #      }, {
+          #        "id": 2,
+          #        "role_id": 2,
+          #        "name": "Laura",
+          #        "email": "laura@gmail.com",
+          #        "created_at": "2015-01-10T23:38:40.228Z",
+          #        "updated_at": "2015-01-10T23:38:40.228Z"
+          #      }]
 
           def search
-            User.search(params[:search])
-            #render :json => response, :status => status
+            if request.headers['Range']
+              from, to = get_range_header()
+              limit = to - from + 1
+              query_response = User.select(:id, :role_id, :name, :email, :created_at, :updated_at).search(params[:search]).limit(limit).offset(from).to_a
+              render json: ActiveSupport::JSON.encode(query_response), status: 206
+            else
+              render json: {response: t('users.index.response')}, status: 416 
+            end
           end
 
       end

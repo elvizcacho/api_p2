@@ -214,6 +214,46 @@ module Api
             render :json => response, :status => status
         end
 
+          ##
+          # Searchs for a role
+          #
+          # GET /api/v1/roles/search
+          #
+          # header:
+          #   range - items=num-num
+          #
+          # params:
+          #   search - string     
+          #   token - API token [Required]
+          #      
+          # = Examples
+          #   
+          #   header:
+          #   range: items=0-1
+          #   resp = conn.get("/api/v1/roles/search", "search" => "client", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 206 - Partial Content
+          #
+          #   resp.body
+          #   => [{
+          #          "id": 2,
+          #          "name": "client",
+          #          "created_at": "2015-01-10T23:38:40.226Z",
+          #          "updated_at": "2015-01-10T23:38:40.226Z"
+          #      }]
+
+          def search
+            if request.headers['Range']
+              from, to = get_range_header()
+              limit = to - from + 1
+              query_response = Role.search(params[:search]).limit(limit).offset(from).to_a
+              render json: ActiveSupport::JSON.encode(query_response), status: 206
+            else
+              render json: {response: t('users.index.response')}, status: 416 
+            end
+          end
+
       end
     end
 end
