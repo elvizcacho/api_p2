@@ -48,7 +48,7 @@ module Api
             else
               render json: {response: t('users.index.response')}, status: 416 
             end
-    	    end
+          end
 
           ##
           # Creates an User.

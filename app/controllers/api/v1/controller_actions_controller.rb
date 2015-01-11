@@ -26,50 +26,95 @@ module Api
         #            "name": "users",
         #            "controller_actions": [{
         #                                    "id": 2,
-        #                                    "name": "index"
+        #                                    "name": "index",
+        #                                    "controller_actions": []
         #                                    }, {
         #                                    "id": 3,
-        #                                    "name": "create"
+        #                                    "name": "create",
+        #                                    "controller_actions": []
         #                                    }, {
         #                                    "id": 4,
-        #                                    "name": "destroy"
+        #                                    "name": "destroy",
+        #                                    "controller_actions": [{
+        #                                                            "id": 24,
+        #                                                            "name": "destroy other users"
+        #                                                        }, {
+        #                                                            "id": 25,
+        #                                                            "name": "destroy itself"
+        #                                                            }]
         #                                    }, {
         #                                    "id": 5,
-        #                                    "name": "update"
+        #                                    "name": "update",
+        #                                    "controller_actions": [{
+        #                                                            "id": 18,
+        #                                                            "name": "update role_id"
+        #                                                        }, {
+        #                                                            "id": 19,
+        #                                                            "name": "update password"
+        #                                                        }, {
+        #                                                            "id": 20,
+        #                                                            "name": "update other users"
+        #                                                        }, {
+        #                                                            "id": 21,
+        #                                                            "name": "update itself"
+        #                                                            }]
         #                                    }, {
         #                                    "id": 6,
-        #                                    "name": "login" 
+        #                                    "name": "login",
+        #                                    "controller_actions": []
         #                                    }, {
         #                                    "id": 7,
-        #                                    "name": "show"
+        #                                    "name": "show",
+        #                                    "controller_actions": []
         #                                    }, {
         #                                    "id": 14,
-        #                                    "name": "role"
+        #                                    "name": "role",
+        #                                    "controller_actions": []
         #                                    }, {
         #                                    "id": 15,
-        #                                    "name": "update_password"
-        #                                   }]
+        #                                    "name": "update_password",
+        #                                    "controller_actions": [{
+        #                                                            "id": 26,
+        #                                                            "name": "update other users password"
+        #                                                            }, {
+        #                                                            "id": 27,
+        #                                                            "name": "update own user password"
+        #                                                            }]
+        #                                    }]
         #        }, {
         #            "id": 8,
         #            "name": "roles",
         #            "controller_actions": [{
         #                                    "id": 9,
-        #                                    "name": "index"
-        #                                }, {
+        #                                    "name": "index",
+        #                                    "controller_actions": []
+        #                                    }, {
         #                                    "id": 10,
-        #                                    "name": "show"
-        #                                }, {
+        #                                    "name": "show",
+        #                                    "controller_actions": []
+        #                                    }, {
         #                                    "id": 11,
-        #                                    "name": "create"
-        #                                }, {
+        #                                    "name": "create",
+        #                                    "controller_actions": []
+        #                                    }, {
         #                                    "id": 12,
-        #                                    "name": "destroy"
-        #                                }, {
+        #                                    "name": "destroy",
+        #                                    "controller_actions": []
+        #                                    }, {
         #                                    "id": 13,
-        #                                    "name": "update"
-        #                                }]
+        #                                    "name": "update",
+        #                                    "controller_actions": []
+        #                                    }, {
+        #                                    "id": 22,
+        #                                    "name": "show_permissions",
+        #                                    "controller_actions": []
+        #                                    }, {
+        #                                    "id": 23,
+        #                                    "name": "assign_permissions",
+        #                                    "controller_actions": []
+        #                                    }]
         #        }]
-		#
+        #
 
       	def index
       		controllers = ControllerAction.select(:id, :name).where(:controller_action_id => nil)
