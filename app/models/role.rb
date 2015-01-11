@@ -39,12 +39,8 @@ class Role < ActiveRecord::Base
 
     def self.get_permissions(hash)
         role = self.find(hash[:id])  #gets the role
-        actions = role.controller_actions #gets the actions associated to the role
-        response = []  #creates an empty array
-        for action in actions #adds the id of each action to the response array
-            response << action.id
-        end
-        return response, 200
+        action_ids = role.controller_actions.ids #gets the action ids associated to the role
+        return action_ids, 200
     end
 
     def self.set_permissions(hash)

@@ -11,23 +11,13 @@ class User < ActiveRecord::Base
     validates :password, presence: true, length: {minimum: 3}
 
     def self.get_permissions(params)
-        
         controller_request = params[:controller].scan(/v\d\.{0,1}\d*\/([^\/]+)$/)[0][0] #gets the controller name
         controller_db = ControllerAction.where(:name => controller_request, :controller_action_id => nil).first #gets the controller from db
         action_db = ControllerAction.where(:name => params[:action], :controller_action_id => controller_db.id).first #gets the actions associated to controller_db
-        permissions = action_db.controller_actions.select(:id) #gets the permissions of the action
-        array = [] #creates an empty array
-        for permission in permissions #gets the id of each permission
-            array << permission.id
-        end
-
+        permissions = action_db.controller_actions.ids #gets the permissions of the action
         role = ApiKey.find_by_token(params[:token]).user.role #gets role by token
-        role_permissions = role.controller_actions #gets role permissions
-        array2 = [] #creates an empty array
-        for role_permission in role_permissions #gets the ids of each permission
-            array2 << role_permission.id
-        end
-        return array, array2 #return the permissions of the action and the role permissions
+        role_permissions = role.controller_actions.ids #gets role permissions
+        return permissions, role_permissions #return the permissions of the action and the role permissions
     end
 
     def create_api_key #when an user is created its token is created after save it

@@ -269,6 +269,37 @@ module Api
             render :json => response, :status => status
           end
 
+          ##
+          # Searchs for an User
+          #
+          # update_password
+          # 
+          # PUT/PATCH /api/v1/users/:id/update_password
+          #
+          # params:
+          #   id - number       
+          #   name - string     
+          #   role_id - number  
+          #   token - API token 
+          #   email - string
+          #      
+          # = Examples
+          #   
+          #   resp = conn.put("/api/v1/users/1/update_password", "id" => 1, "current_password" => "1234", "new_password" => "hola", "token" => "dcbb7b36acd4438d07abafb8e28605a4")
+          #   
+          #   resp.status
+          #   => 200 - OK
+          #
+          #   resp.body
+          #   => {
+          #        "response": "User password was updated"
+          #      }
+
+          def search
+            #User.where(:id => params[:id], :token => params[:token], :name => params[:name], :role_id => params[:role_id], :email => params[:email])
+            #render :json => response, :status => status
+          end
+
       end
     end
 end
