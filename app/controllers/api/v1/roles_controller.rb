@@ -23,17 +23,17 @@ module Api
         #
         #   resp.body
         #   =>   [{
-    	#		"id": 1,
-    	#		"name": "admin",
-    	#		"created_at": "2015-01-02T21:07:54.465Z",
-    	#		"updated_at": "2015-01-02T21:07:54.465Z"
-		#	   }, {
-    	#		"id": 2,
-    	#		"name": "client",
-    	#		"created_at": "2015-01-02T21:07:54.833Z",
-    	#		"updated_at": "2015-01-02T21:07:54.833Z"
-		#	   }]
-		#
+    	  #		"id": 1,
+    	  #		"name": "admin",
+    	  #		"created_at": "2015-01-02T21:07:54.465Z",
+    	  #		"updated_at": "2015-01-02T21:07:54.465Z"
+		    #	   }, {
+    	  #		"id": 2,
+    	  #		"name": "client",
+    	  #		"created_at": "2015-01-02T21:07:54.833Z",
+    	  #		"updated_at": "2015-01-02T21:07:54.833Z"
+		    #	   }]
+		    #
 
       	def index
       		if request.headers['Range']
@@ -46,9 +46,9 @@ module Api
            	end	
       	end
 
-    	##
-    	# It shows a Role.
-    	#
+    	  ##
+    	  # It shows a Role.
+    	  #
         # Show
         # 
         # GET /api/v1/roles/:id
@@ -65,11 +65,11 @@ module Api
         #
         #   resp.body
         #   =>   {
-    	#		 "id": 2,
-    	#		 "name": "client",
-    	#		 "created_at": "2015-01-02T21:07:54.833Z",
-    	#		 "updated_at": "2015-01-02T21:07:54.833Z"
-		#	   }
+    	  #		 "id": 2,
+    	  #		 "name": "client",
+    	  #		 "created_at": "2015-01-02T21:07:54.833Z",
+    	  #		 "updated_at": "2015-01-02T21:07:54.833Z"
+		    #	   }
 
       	def show
             begin
