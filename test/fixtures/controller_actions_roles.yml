@@ -119,3 +119,18 @@
   role_id : 2
   controller_action_id: 27
 
+33:
+  role_id : 3
+  controller_action_id: 5
+
+34:
+  role_id : 3
+  controller_action_id: 20
+
+35:
+  role_id : 3
+  controller_action_id: 15
+
+36:
+  role_id : 3
+  controller_action_id: 26

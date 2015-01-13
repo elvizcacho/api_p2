@@ -24,7 +24,7 @@
 4:
   id: 4
   name: Laura
-  role_id: 2
+  role_id: 3
   email: laura@gmail.com
   password: <%= Digest::MD5.hexdigest('1234') %>
 

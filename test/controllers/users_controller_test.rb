@@ -60,8 +60,15 @@ module Api
 
       test 'only admin can update user accounts' do
         put :update, {:id => 11, :token => '0474eee1800353d61a5de09259ee2f9e', :name => 'Ana'}
-        puts "#{@response.body}"
         assert(User.find(11).name == 'Ana', 'user was updated by admin')
+      end
+
+      test 'this account can update other accounts but its own account' do
+        put :update, {:id => 12, :token => 'd83d8c78924be366ee08b5522e04e626', :name => 'Ana'}
+        assert(User.find(12).name == 'Ana', 'user was updated')
+        name_before_update = User.find(12).name
+        put :update, {:id => 4, :token => 'd83d8c78924be366ee08b5522e04e626', :name => 'Ana'}
+        assert(User.find(12).name == name_before_update, 'user cannot update its own account')
       end
 
       test 'only an user can update their own account' do
@@ -90,6 +97,14 @@ module Api
         #owner
         put :update_password, {:id => 5, :token => ApiKey.find(5).token, :current_password => '12345', :new_password => '123456'}
         assert(User.find(5).password == Digest::MD5.hexdigest('123456'), 'user password was changed by owner');
+      end
+
+      test 'this account can update other passwords but its own password' do
+        put :update_password, {:id => 12, :token => 'd83d8c78924be366ee08b5522e04e626', :current_password => '1234', :new_password => '12345'}
+        assert(User.find(12).password == Digest::MD5.hexdigest('12345'), 'user password was updated by user 4')
+        put :update_password, {:id => 4, :token => 'd83d8c78924be366ee08b5522e04e626', :current_password => '1234', :new_password => '12345'}
+        #puts "#{@response.body}"
+        assert(User.find(4).password == Digest::MD5.hexdigest('1234'), 'user 4 cannot update its own account')
       end
 
     end

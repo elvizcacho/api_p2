@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
         #end
     	begin
             user_id = ApiKey.find_by_token(hash[:token]).user.id #gets the user by token
-            if update_other_users || (update_itself && user_id == hash[:id].to_i)
+            if (update_other_users && user_id != hash[:id].to_i) || (update_itself && user_id == hash[:id].to_i)
                 user = self.find(hash[:id])
                 role_id = !update_role_id ? user.role_id : hash[:role_id].nil? ? user.role_id : hash[:role_id] #Only roles with "update_role_id" permission can change the user role
                 password = !update_password ? user.password : hash[:password].nil? ? user.password : hash[:password] #Only roles with "update_password" permission can change the user password
@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
         #end
         begin
             user_id = ApiKey.find_by_token(hash[:token]).user.id #gets the user by tokencd
-            if update_other_users_password || (update_own_user_password && user_id == hash[:id].to_i)
+            if (update_other_users_password && user_id != hash[:id].to_i)|| (update_own_user_password && user_id == hash[:id].to_i)
                 user = self.find(hash[:id])
                 if hash[:new_password] && hash[:current_password] && user.password == Digest::MD5.hexdigest(hash[:current_password])
                     user.assign_attributes(:name => user.name, :role_id => user.role_id, :password => hash[:new_password], :email => user.email)
